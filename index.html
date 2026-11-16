@@ -1,0 +1,910 @@
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tante Adèle – Planning du personnel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--font-body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--bg:#EDF3EA;--surface:#FFFFFF;--surface-2:#E1EBDD;--ink:#16261A;--ink-2:#53665A;--line:#D1DDCD;--line-2:#B1C3AC;
+--accent:#2E7D3A;--accent-ink:#FFFFFF;--accent-soft:#D9EDD5;--am-bg:#FDE8B8;--am-ink:#5E3B00;--pm-bg:#DAE3FB;--pm-ink:#23337A;
+--weekend:#F1F6EF;--out:#F6F9F5;--danger:#B3261E;--danger-soft:#FCE3E0;--shadow:0 12px 40px rgba(14,30,20,.22);--scrim:rgba(14,30,20,.5);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--bg:#0E1A12;--surface:#15261A;--surface-2:#1C3323;--ink:#E4EFE6;--ink-2:#9BB3A2;--line:#294632;--line-2:#3A5C47;--accent:#6CCB7C;--accent-ink:#08210D;--accent-soft:#1B3F24;
+--am-bg:#4A3610;--am-ink:#F7D88E;--pm-bg:#25305E;--pm-ink:#C3D0FF;--weekend:#122219;--out:#101E15;--danger:#FF9086;--danger-soft:#47211E;--shadow:0 12px 40px rgba(0,0,0,.55);--scrim:rgba(0,0,0,.62);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1A12;--surface:#15261A;--surface-2:#1C3323;--ink:#E4EFE6;--ink-2:#9BB3A2;--line:#294632;--line-2:#3A5C47;--accent:#6CCB7C;--accent-ink:#08210D;--accent-soft:#1B3F24;
+--am-bg:#4A3610;--am-ink:#F7D88E;--pm-bg:#25305E;--pm-ink:#C3D0FF;--weekend:#122219;--out:#101E15;--danger:#FF9086;--danger-soft:#47211E;--shadow:0 12px 40px rgba(0,0,0,.55);--scrim:rgba(0,0,0,.62);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.45;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance;line-height:1.15}p{margin:0}
+button,input{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.app{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:14px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:1.4rem;flex:none}
+.brand h1{font-size:1.7rem;font-weight:700;letter-spacing:-.01em;color:var(--accent)}
+.brand p{color:var(--ink-2);font-size:.95rem}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;min-width:0}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--ink-2);flex:none}
+.save-note{font-size:.8rem;color:var(--ink-2);max-width:240px}
+.status.ok i{background:#1F9D4F}.status.wait i{background:#D39A12}
+.status.bad{color:var(--danger);border-color:var(--danger)}.status.bad i{background:var(--danger)}.status.demo i{background:var(--pm-ink)}
+.shops{display:flex;flex-wrap:wrap;gap:8px}
+.shops button{min-height:48px;padding:0 22px;border-radius:999px;border:2px solid var(--line-2);background:var(--surface);font-weight:700;font-size:1.02rem}
+.shops button:hover{border-color:var(--accent);color:var(--accent)}
+.shops button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px}
+.monthnav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.monthnav h2{font-size:1.6rem;font-weight:700;min-width:11ch;text-align:center;letter-spacing:-.01em}
+.round{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-2);background:var(--surface);display:grid;place-items:center;font-size:1.5rem;line-height:1;padding:0}
+.round:hover{border-color:var(--accent);color:var(--accent)}
+.tabs{display:inline-flex;background:var(--surface-2);border-radius:12px;padding:4px;gap:4px;max-width:100%;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;border-radius:9px;min-height:44px;padding:0 18px;font-weight:600;color:var(--ink-2)}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(14,30,20,.18)}
+.tabs button:hover{color:var(--ink)}
+.btn{min-height:44px;padding:0 20px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn:hover{filter:brightness(1.08)}.btn[disabled]{opacity:.45;cursor:not-allowed;filter:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2);font-weight:600}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
+.btn.danger{background:var(--danger);border-color:var(--danger);color:var(--surface)}
+.btn.small{min-height:38px;padding:0 14px;font-size:.92rem}
+.link{background:none;border:0;padding:6px 2px;color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:12px 16px}
+.banner p{flex:1 1 320px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;color:var(--ink-2);font-size:.92rem}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.slot{display:inline-block;border-radius:6px;padding:2px 7px;font-size:.84rem;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;font-style:normal}
+.slot.m{background:var(--am-bg);color:var(--am-ink)}.slot.a{background:var(--pm-bg);color:var(--pm-ink)}.slot.s{background:var(--accent-soft);color:var(--accent)}
+.swatch-out{display:inline-block;width:22px;height:14px;border-radius:4px;background:var(--out);border:1px dashed var(--line-2)}
+#view{display:flex;flex-direction:column;gap:20px;min-width:0}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
+.weekhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.weekhead h3{font-size:1.2rem;font-weight:700}.weekhead p{color:var(--ink-2)}
+.week-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:auto}
+@media print{.week-actions{display:none!important}}
+.scroll{overflow-x:auto}
+table{border-collapse:separate;border-spacing:0;width:100%}.grid{min-width:860px}
+th,td{padding:0;text-align:left;vertical-align:middle}
+thead th{background:var(--surface-2);padding:10px 8px;text-align:center;font-weight:600;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th .dn{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+thead th .dd{display:block;font-family:var(--font-display);font-size:1.25rem;font-weight:700;line-height:1.1}
+thead th .dm{display:block;font-size:.75rem;color:var(--ink-2)}
+thead th.today{background:var(--accent);color:var(--accent-ink)}thead th.today .dn,thead th.today .dm{color:var(--accent-ink);opacity:.85}
+thead th.out{color:var(--ink-2)}thead th.out .dd{font-weight:600}
+th.emp{position:sticky;left:0;z-index:2;background:var(--surface);min-width:150px;max-width:210px;padding:10px 14px;font-weight:700;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+thead th.emp{background:var(--surface-2);text-align:left}
+td.cell{border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:108px;width:12%}
+td.cell.wk{background:var(--weekend)}td.cell.out{background:var(--out)}
+.cellbtn{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;width:100%;min-height:78px;padding:8px 10px;border:0;background:transparent;text-align:left}
+.cellbtn:hover{background:var(--accent-soft)}.cellbtn:focus-visible{outline-offset:-3px}
+.cellbtn .dayh{font-family:var(--font-display);font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+td.out .cellbtn .dayh,td.out .cellbtn .slot{opacity:.62}
+.cellbtn.empty{align-items:center}.cellbtn .dash{color:var(--line-2);font-size:1.2rem}
+.cellbtn .plus{display:none;color:var(--accent);font-size:1.5rem;font-weight:700;line-height:1}
+.cellbtn.empty:hover .dash{display:none}.cellbtn.empty:hover .plus{display:block}
+td.tot{border-bottom:1px solid var(--line);background:var(--surface-2);font-family:var(--font-display);font-weight:700;font-size:1.15rem;text-align:center;padding:8px 12px;white-space:nowrap;min-width:96px;font-variant-numeric:tabular-nums}
+td.tot .zero{color:var(--ink-2);font-weight:600}thead th.tot{min-width:96px}
+tfoot th.emp,tfoot td{background:var(--surface-2);border-bottom:0;border-top:2px solid var(--line-2)}
+tfoot td{padding:10px 8px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+tr:last-child th.emp,tr:last-child td.cell{border-bottom:0}tbody tr:last-child td.tot{border-bottom:0}
+.totals{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.totals .weekhead{justify-content:space-between;align-items:center}.totals table{min-width:620px}
+.totals thead th .wk{display:block;font-family:var(--font-display);font-size:1.05rem;font-weight:700}
+.totals thead th .wr{display:block;font-size:.78rem;font-weight:500;color:var(--ink-2)}
+.totals tbody td,.totals tbody th{border-bottom:1px solid var(--line)}
+.totals tbody td.v{text-align:center;padding:14px 10px;font-variant-numeric:tabular-nums;font-size:1.02rem}
+.totals tbody td.v.big{font-family:var(--font-display);font-weight:700;font-size:1.2rem;background:var(--surface-2)}
+.totals tbody td.v .zero{color:var(--ink-2)}.totals tfoot td{font-size:1.02rem}
+.note{padding:12px 18px;color:var(--ink-2);font-size:.92rem;border-top:1px solid var(--line)}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card h3{font-size:1.2rem}.hint{color:var(--ink-2);font-size:.95rem}
+.emplist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.emplist li{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}.emplist .nameinput{flex:1 1 180px;min-width:0}
+.field,.nameinput{min-height:46px;padding:0 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);width:100%}
+.field:hover,.nameinput:hover{border-color:var(--accent)}
+.confirm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;flex:1 1 100%;background:var(--danger-soft);border-radius:10px;padding:8px 12px}.confirm span{flex:1 1 200px}
+.addrow{display:flex;flex-wrap:wrap;gap:10px}.addrow .field{flex:1 1 200px;width:auto}
+.defs{display:grid;grid-template-columns:auto 1fr 1fr;gap:10px 12px;align-items:center}
+.defs .lbl{font-weight:600;display:flex;align-items:center}
+.defs label.t{font-size:.88rem;color:var(--ink-2);display:block;margin-bottom:2px}
+.err{color:var(--danger);font-weight:600;min-height:1.2em}
+.empty-state{background:var(--surface);border:1px dashed var(--line-2);border-radius:14px;padding:36px 20px;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center}
+.empty-state h3{font-size:1.3rem}.loading{padding:40px 0;text-align:center;color:var(--ink-2)}
+.overlay{position:fixed;inset:0;background:var(--scrim);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));z-index:50;overflow-y:auto}
+.overlay[hidden]{display:none}
+.panel{width:100%;max-width:520px;max-height:100%;overflow-y:auto;background:var(--surface);border-radius:16px;box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:16px}
+.phead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.phead h3{font-size:1.4rem}.phead p{color:var(--ink-2);text-transform:capitalize}
+.iconbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:transparent;font-size:1.5rem;line-height:1;flex:none;display:grid;place-items:center;padding:0}
+.iconbtn:hover{border-color:var(--accent);color:var(--accent)}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+.presets button{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-weight:600;font-size:.93rem}
+.presets button:hover{border-color:var(--accent);color:var(--accent)}
+.slots{display:flex;flex-direction:column;gap:12px}
+.slotrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;border-radius:12px;padding:10px 12px}
+.slotrow.m{background:var(--am-bg);color:var(--am-ink)}.slotrow.a{background:var(--pm-bg);color:var(--pm-ink)}.slotrow.s{background:var(--accent-soft);color:var(--accent)}
+.modes{margin:0}.slotname{font-weight:700;width:6.4em}
+.slotrow input{width:8.6em;min-height:46px;padding:0 10px;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.info{min-height:1.5em;font-weight:600}.info.bad{color:var(--danger)}
+.apply{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;min-width:0}.apply legend{padding:0 6px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}.chip{position:relative;display:inline-flex}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-weight:600;font-size:.92rem}
+.chip input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip input:disabled+span{opacity:.85}.chip input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.pfoot{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:max(20px,env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:600;z-index:60;max-width:calc(100% - 32px)}
+@media (max-width:760px){
+  body{padding-block:14px 32px}
+  .app{gap:14px}
+  .top{align-items:flex-start}
+  .tools{width:100%;justify-content:flex-start}
+  .tools .btn{flex:1 1 auto}
+  .bar{align-items:stretch;gap:12px}
+  .monthnav{justify-content:space-between;gap:6px}
+  .monthnav h2{flex:1;min-width:0}
+  .tabs{display:flex;width:100%;flex-wrap:nowrap;overflow-x:auto}
+  .tabs button{flex:1 0 auto;padding:0 12px;white-space:nowrap}
+  .shops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+  .shops button{padding:0 8px;min-width:0}
+  .weekhead{padding:12px 14px}
+  .scroll{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .grid{min-width:790px}
+}
+@media (max-width:560px){
+  .brand h1{font-size:1.4rem}
+  .monthnav h2{font-size:1.2rem}
+  .round{width:42px;height:42px;flex:none}
+  .monthnav .btn{padding:0 10px}
+  .defs{grid-template-columns:1fr 1fr}
+  .defs .lbl{grid-column:1/-1}
+  .shops button{font-size:.94rem}
+  .panel{padding:16px}
+  .slotrow{display:grid;grid-template-columns:auto minmax(70px,1fr) auto minmax(70px,1fr);gap:8px;padding:10px}
+  .slotname{grid-column:1/-1;width:auto}
+  .slotrow input{width:100%;min-width:0;padding:0 7px}
+  .pfoot{position:sticky;bottom:-16px;background:var(--surface);padding:10px 0 2px}
+  .pfoot button{flex:1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo" aria-hidden="true">TA</div><div><h1>Tante Adèle</h1><p>Planning du personnel</p></div></div>
+    <div class="tools">
+      <button type="button" class="btn ghost small" id="saveCopy" hidden="">Télécharger une copie</button>
+      <button type="button" class="btn ghost small" id="openCopy" data-manus_clickable="true" data-manus_click_id="1">Restaurer une sauvegarde</button>
+      <input type="file" id="importFile" accept=".json,.html,application/json,text/html" hidden="">
+      <button type="button" class="btn ghost small" id="cloudSignIn" hidden>Connexion</button>
+      <button type="button" class="btn ghost small" id="cloudSignOut" hidden>Déconnexion</button>
+      <div id="status" class="status demo" role="status" aria-live="polite" title="Les changements sont enregistrés automatiquement."><i></i><span>Exemple : rien n’est enregistré</span></div>
+      <span class="save-note">Sauvegarde automatique. En mode cloud, vos changements sont partagés entre appareils.</span>
+    </div>
+  </header>
+  <div class="shops" id="shops" role="tablist" aria-label="Choisir la boulangerie" data-manus_clickable="true" data-manus_click_id="2"><button type="button" role="tab" data-shop="halles" aria-selected="true" data-manus_clickable="true" data-manus_click_id="3">Les Halles</button><button type="button" role="tab" data-shop="corgnac" aria-selected="false" data-manus_clickable="true" data-manus_click_id="4">Corgnac</button><button type="button" role="tab" data-shop="landouge" aria-selected="false" data-manus_clickable="true" data-manus_click_id="5">Landouge</button></div>
+  <div class="bar">
+    <div class="monthnav" role="group" aria-label="Choisir le mois">
+      <button type="button" id="prev" class="round" aria-label="Mois précédent" data-manus_clickable="true" data-manus_click_id="6">‹</button>
+      <h2 id="monthLabel" aria-live="polite">Novembre 2026</h2>
+      <button type="button" id="next" class="round" aria-label="Mois suivant" data-manus_clickable="true" data-manus_click_id="7">›</button>
+      <button type="button" id="today" class="btn ghost small" data-manus_clickable="true" data-manus_click_id="8">Aujourd’hui</button>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Affichage" data-manus_clickable="true" data-manus_click_id="9">
+      <button type="button" role="tab" data-tab="planning" id="tab-planning" aria-selected="true" data-manus_clickable="true" data-manus_click_id="10">Planning</button>
+      <button type="button" role="tab" data-tab="totals" id="tab-totals" aria-selected="false" data-manus_clickable="true" data-manus_click_id="11">Totaux du mois</button>
+      <button type="button" role="tab" data-tab="team" id="tab-team" aria-selected="false" data-manus_clickable="true" data-manus_click_id="12">Équipe</button>
+    </div>
+  </div>
+  <div id="banner" data-manus_clickable="true" data-manus_click_id="13"><div class="banner"><p><strong>Boulangerie Les Halles : pas encore d’équipe.</strong> Ce que vous voyez est un exemple inventé. Vous pouvez essayer, mais rien n’est conservé.</p><button type="button" class="btn" data-act="start-live" data-manus_clickable="true" data-manus_click_id="14">Commencer l’équipe de Les Halles</button></div></div>
+  <main id="view" data-manus_clickable="true" data-manus_click_id="15"><div class="legend"><span><i class="slot s">Une seule période</i></span><span><i class="slot m">Matin</i></span><span><i class="slot a">Après-midi</i></span><span><i class="swatch-out"></i>Jour du mois voisin : compté dans la semaine, pas dans le mois</span></div><section class="week" aria-label="Semaine 44"><div class="weekhead"><h3>Semaine 44</h3><p>du lundi 26 octobre au dimanche 1er novembre</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="2026-10-26" data-manus_clickable="true" data-manus_click_id="16">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="2026-10-26" data-manus_clickable="true" data-manus_click_id="17">PDF</button></span></div><div class="scroll"><table class="grid"><thead><tr><th scope="col" class="emp">Employé</th><th scope="col" class="day out"><span class="dn">Lun</span><span class="dd">26</span><span class="dm">oct.</span></th><th scope="col" class="day out"><span class="dn">Mar</span><span class="dd">27</span><span class="dm">oct.</span></th><th scope="col" class="day out"><span class="dn">Mer</span><span class="dd">28</span><span class="dm">oct.</span></th><th scope="col" class="day out"><span class="dn">Jeu</span><span class="dd">29</span><span class="dm">oct.</span></th><th scope="col" class="day out"><span class="dn">Ven</span><span class="dd">30</span><span class="dm">oct.</span></th><th scope="col" class="day wk out"><span class="dn">Sam</span><span class="dd">31</span><span class="dm">oct.</span></th><th scope="col" class="day wk"><span class="dn">Dim</span><span class="dd">1</span></th><th scope="col" class="tot">Total semaine</th></tr></thead><tbody><tr><th scope="row" class="emp">Léa Martin</th><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-10-26" aria-label="Léa Martin, lundi 26 octobre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="18"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-10-27" aria-label="Léa Martin, mardi 27 octobre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="19"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-10-28" aria-label="Léa Martin, mercredi 28 octobre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="20"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-10-29" aria-label="Léa Martin, jeudi 29 octobre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="21"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-10-30" aria-label="Léa Martin, vendredi 30 octobre : 6h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="22"><span class="dayh">6h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–16h</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-10-31" aria-label="Léa Martin, samedi 31 octobre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="23"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-01" aria-label="Léa Martin, dimanche 1er novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="24"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h30</td></tr><tr><th scope="row" class="emp">Hugo Bernard</th><td class="cell out"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-10-26" aria-label="Hugo Bernard, lundi 26 octobre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="25"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-10-27" aria-label="Hugo Bernard, mardi 27 octobre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="26"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-10-28" aria-label="Hugo Bernard, mercredi 28 octobre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="27"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-10-29" aria-label="Hugo Bernard, jeudi 29 octobre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="28"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-10-30" aria-label="Hugo Bernard, vendredi 30 octobre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="29"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell wk out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-10-31" aria-label="Hugo Bernard, samedi 31 octobre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="30"><span class="dayh">4h</span><span class="slot m">9h–13h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-01" aria-label="Hugo Bernard, dimanche 1er novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="31"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h</td></tr><tr><th scope="row" class="emp">Nadia Costa</th><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-10-26" aria-label="Nadia Costa, lundi 26 octobre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="32"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell out"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-10-27" aria-label="Nadia Costa, mardi 27 octobre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="33"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-10-28" aria-label="Nadia Costa, mercredi 28 octobre : 7h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="34"><span class="dayh">7h</span><span class="slot m">8h30–12h30</span><span class="slot a">14h–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-10-29" aria-label="Nadia Costa, jeudi 29 octobre : 6h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="35"><span class="dayh">6h</span><span class="slot s">10h–16h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-10-30" aria-label="Nadia Costa, vendredi 30 octobre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="36"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-10-31" aria-label="Nadia Costa, samedi 31 octobre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="37"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-01" aria-label="Nadia Costa, dimanche 1er novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="38"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">21h</td></tr></tbody><tfoot><tr><th scope="row" class="emp">Toute l’équipe</th><td>11h30</td><td>15h30</td><td>22h30</td><td>21h30</td><td>18h30</td><td>4h</td><td><span class="zero">–</span></td><td class="tot">93h30</td></tr></tfoot></table></div></section><section class="week" aria-label="Semaine 45"><div class="weekhead"><h3>Semaine 45</h3><p>du lundi 2 au dimanche 8 novembre</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="2026-11-02" data-manus_clickable="true" data-manus_click_id="39">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="2026-11-02" data-manus_clickable="true" data-manus_click_id="40">PDF</button></span></div><div class="scroll"><table class="grid"><thead><tr><th scope="col" class="emp">Employé</th><th scope="col" class="day"><span class="dn">Lun</span><span class="dd">2</span></th><th scope="col" class="day"><span class="dn">Mar</span><span class="dd">3</span></th><th scope="col" class="day today"><span class="dn">Mer</span><span class="dd">4</span></th><th scope="col" class="day"><span class="dn">Jeu</span><span class="dd">5</span></th><th scope="col" class="day"><span class="dn">Ven</span><span class="dd">6</span></th><th scope="col" class="day wk"><span class="dn">Sam</span><span class="dd">7</span></th><th scope="col" class="day wk"><span class="dn">Dim</span><span class="dd">8</span></th><th scope="col" class="tot">Total semaine</th></tr></thead><tbody><tr><th scope="row" class="emp">Léa Martin</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-02" aria-label="Léa Martin, lundi 2 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="41"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-03" aria-label="Léa Martin, mardi 3 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="42"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-04" aria-label="Léa Martin, mercredi 4 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="43"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-05" aria-label="Léa Martin, jeudi 5 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="44"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-06" aria-label="Léa Martin, vendredi 6 novembre : 6h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="45"><span class="dayh">6h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–16h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-07" aria-label="Léa Martin, samedi 7 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="46"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-08" aria-label="Léa Martin, dimanche 8 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="47"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h30</td></tr><tr><th scope="row" class="emp">Hugo Bernard</th><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-02" aria-label="Hugo Bernard, lundi 2 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="48"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-03" aria-label="Hugo Bernard, mardi 3 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="49"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-04" aria-label="Hugo Bernard, mercredi 4 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="50"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-05" aria-label="Hugo Bernard, jeudi 5 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="51"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-06" aria-label="Hugo Bernard, vendredi 6 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="52"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell wk"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-07" aria-label="Hugo Bernard, samedi 7 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="53"><span class="dayh">4h</span><span class="slot m">9h–13h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-08" aria-label="Hugo Bernard, dimanche 8 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="54"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h</td></tr><tr><th scope="row" class="emp">Nadia Costa</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-02" aria-label="Nadia Costa, lundi 2 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="55"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-03" aria-label="Nadia Costa, mardi 3 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="56"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-04" aria-label="Nadia Costa, mercredi 4 novembre : 7h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="57"><span class="dayh">7h</span><span class="slot m">8h30–12h30</span><span class="slot a">14h–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-05" aria-label="Nadia Costa, jeudi 5 novembre : 6h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="58"><span class="dayh">6h</span><span class="slot s">10h–16h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-06" aria-label="Nadia Costa, vendredi 6 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="59"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-07" aria-label="Nadia Costa, samedi 7 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="60"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-08" aria-label="Nadia Costa, dimanche 8 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="61"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">21h</td></tr></tbody><tfoot><tr><th scope="row" class="emp">Toute l’équipe</th><td>11h30</td><td>15h30</td><td>22h30</td><td>21h30</td><td>18h30</td><td>4h</td><td><span class="zero">–</span></td><td class="tot">93h30</td></tr></tfoot></table></div></section><section class="week" aria-label="Semaine 46"><div class="weekhead"><h3>Semaine 46</h3><p>du lundi 9 au dimanche 15 novembre</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="2026-11-09" data-manus_clickable="true" data-manus_click_id="62">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="2026-11-09" data-manus_clickable="true" data-manus_click_id="63">PDF</button></span></div><div class="scroll"><table class="grid"><thead><tr><th scope="col" class="emp">Employé</th><th scope="col" class="day"><span class="dn">Lun</span><span class="dd">9</span></th><th scope="col" class="day"><span class="dn">Mar</span><span class="dd">10</span></th><th scope="col" class="day"><span class="dn">Mer</span><span class="dd">11</span></th><th scope="col" class="day"><span class="dn">Jeu</span><span class="dd">12</span></th><th scope="col" class="day"><span class="dn">Ven</span><span class="dd">13</span></th><th scope="col" class="day wk"><span class="dn">Sam</span><span class="dd">14</span></th><th scope="col" class="day wk"><span class="dn">Dim</span><span class="dd">15</span></th><th scope="col" class="tot">Total semaine</th></tr></thead><tbody><tr><th scope="row" class="emp">Léa Martin</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-09" aria-label="Léa Martin, lundi 9 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="64"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-10" aria-label="Léa Martin, mardi 10 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="65"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-11" aria-label="Léa Martin, mercredi 11 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="66"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-12" aria-label="Léa Martin, jeudi 12 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="67"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-13" aria-label="Léa Martin, vendredi 13 novembre : 6h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="68"><span class="dayh">6h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–16h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-14" aria-label="Léa Martin, samedi 14 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="69"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-15" aria-label="Léa Martin, dimanche 15 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="70"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h30</td></tr><tr><th scope="row" class="emp">Hugo Bernard</th><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-09" aria-label="Hugo Bernard, lundi 9 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="71"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-10" aria-label="Hugo Bernard, mardi 10 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="72"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-11" aria-label="Hugo Bernard, mercredi 11 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="73"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-12" aria-label="Hugo Bernard, jeudi 12 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="74"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-13" aria-label="Hugo Bernard, vendredi 13 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="75"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell wk"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-14" aria-label="Hugo Bernard, samedi 14 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="76"><span class="dayh">4h</span><span class="slot m">9h–13h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-15" aria-label="Hugo Bernard, dimanche 15 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="77"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h</td></tr><tr><th scope="row" class="emp">Nadia Costa</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-09" aria-label="Nadia Costa, lundi 9 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="78"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-10" aria-label="Nadia Costa, mardi 10 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="79"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-11" aria-label="Nadia Costa, mercredi 11 novembre : 7h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="80"><span class="dayh">7h</span><span class="slot m">8h30–12h30</span><span class="slot a">14h–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-12" aria-label="Nadia Costa, jeudi 12 novembre : 6h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="81"><span class="dayh">6h</span><span class="slot s">10h–16h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-13" aria-label="Nadia Costa, vendredi 13 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="82"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-14" aria-label="Nadia Costa, samedi 14 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="83"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-15" aria-label="Nadia Costa, dimanche 15 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="84"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">21h</td></tr></tbody><tfoot><tr><th scope="row" class="emp">Toute l’équipe</th><td>11h30</td><td>15h30</td><td>22h30</td><td>21h30</td><td>18h30</td><td>4h</td><td><span class="zero">–</span></td><td class="tot">93h30</td></tr></tfoot></table></div></section><section class="week" aria-label="Semaine 47"><div class="weekhead"><h3>Semaine 47</h3><p>du lundi 16 au dimanche 22 novembre</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="2026-11-16" data-manus_clickable="true" data-manus_click_id="85">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="2026-11-16" data-manus_clickable="true" data-manus_click_id="86">PDF</button></span></div><div class="scroll"><table class="grid"><thead><tr><th scope="col" class="emp">Employé</th><th scope="col" class="day"><span class="dn">Lun</span><span class="dd">16</span></th><th scope="col" class="day"><span class="dn">Mar</span><span class="dd">17</span></th><th scope="col" class="day"><span class="dn">Mer</span><span class="dd">18</span></th><th scope="col" class="day"><span class="dn">Jeu</span><span class="dd">19</span></th><th scope="col" class="day"><span class="dn">Ven</span><span class="dd">20</span></th><th scope="col" class="day wk"><span class="dn">Sam</span><span class="dd">21</span></th><th scope="col" class="day wk"><span class="dn">Dim</span><span class="dd">22</span></th><th scope="col" class="tot">Total semaine</th></tr></thead><tbody><tr><th scope="row" class="emp">Léa Martin</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-16" aria-label="Léa Martin, lundi 16 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="87"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-17" aria-label="Léa Martin, mardi 17 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="88"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-18" aria-label="Léa Martin, mercredi 18 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="89"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-19" aria-label="Léa Martin, jeudi 19 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="90"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-20" aria-label="Léa Martin, vendredi 20 novembre : 6h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="91"><span class="dayh">6h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–16h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-21" aria-label="Léa Martin, samedi 21 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="92"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-22" aria-label="Léa Martin, dimanche 22 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="93"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h30</td></tr><tr><th scope="row" class="emp">Hugo Bernard</th><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-16" aria-label="Hugo Bernard, lundi 16 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="94"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-17" aria-label="Hugo Bernard, mardi 17 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="95"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-18" aria-label="Hugo Bernard, mercredi 18 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="96"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-19" aria-label="Hugo Bernard, jeudi 19 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="97"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-20" aria-label="Hugo Bernard, vendredi 20 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="98"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell wk"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-21" aria-label="Hugo Bernard, samedi 21 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="99"><span class="dayh">4h</span><span class="slot m">9h–13h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-22" aria-label="Hugo Bernard, dimanche 22 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="100"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h</td></tr><tr><th scope="row" class="emp">Nadia Costa</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-16" aria-label="Nadia Costa, lundi 16 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="101"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-17" aria-label="Nadia Costa, mardi 17 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="102"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-18" aria-label="Nadia Costa, mercredi 18 novembre : 7h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="103"><span class="dayh">7h</span><span class="slot m">8h30–12h30</span><span class="slot a">14h–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-19" aria-label="Nadia Costa, jeudi 19 novembre : 6h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="104"><span class="dayh">6h</span><span class="slot s">10h–16h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-20" aria-label="Nadia Costa, vendredi 20 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="105"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-21" aria-label="Nadia Costa, samedi 21 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="106"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-22" aria-label="Nadia Costa, dimanche 22 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="107"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">21h</td></tr></tbody><tfoot><tr><th scope="row" class="emp">Toute l’équipe</th><td>11h30</td><td>15h30</td><td>22h30</td><td>21h30</td><td>18h30</td><td>4h</td><td><span class="zero">–</span></td><td class="tot">93h30</td></tr></tfoot></table></div></section><section class="week" aria-label="Semaine 48"><div class="weekhead"><h3>Semaine 48</h3><p>du lundi 23 au dimanche 29 novembre</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="2026-11-23" data-manus_clickable="true" data-manus_click_id="108">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="2026-11-23" data-manus_clickable="true" data-manus_click_id="109">PDF</button></span></div><div class="scroll"><table class="grid"><thead><tr><th scope="col" class="emp">Employé</th><th scope="col" class="day"><span class="dn">Lun</span><span class="dd">23</span></th><th scope="col" class="day"><span class="dn">Mar</span><span class="dd">24</span></th><th scope="col" class="day"><span class="dn">Mer</span><span class="dd">25</span></th><th scope="col" class="day"><span class="dn">Jeu</span><span class="dd">26</span></th><th scope="col" class="day"><span class="dn">Ven</span><span class="dd">27</span></th><th scope="col" class="day wk"><span class="dn">Sam</span><span class="dd">28</span></th><th scope="col" class="day wk"><span class="dn">Dim</span><span class="dd">29</span></th><th scope="col" class="tot">Total semaine</th></tr></thead><tbody><tr><th scope="row" class="emp">Léa Martin</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-23" aria-label="Léa Martin, lundi 23 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="110"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-24" aria-label="Léa Martin, mardi 24 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="111"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-25" aria-label="Léa Martin, mercredi 25 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="112"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-26" aria-label="Léa Martin, jeudi 26 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="113"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-27" aria-label="Léa Martin, vendredi 27 novembre : 6h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="114"><span class="dayh">6h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–16h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-28" aria-label="Léa Martin, samedi 28 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="115"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-11-29" aria-label="Léa Martin, dimanche 29 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="116"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h30</td></tr><tr><th scope="row" class="emp">Hugo Bernard</th><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-23" aria-label="Hugo Bernard, lundi 23 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="117"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-24" aria-label="Hugo Bernard, mardi 24 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="118"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-25" aria-label="Hugo Bernard, mercredi 25 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="119"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-26" aria-label="Hugo Bernard, jeudi 26 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="120"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-27" aria-label="Hugo Bernard, vendredi 27 novembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="121"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell wk"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-11-28" aria-label="Hugo Bernard, samedi 28 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="122"><span class="dayh">4h</span><span class="slot m">9h–13h</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-29" aria-label="Hugo Bernard, dimanche 29 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="123"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h</td></tr><tr><th scope="row" class="emp">Nadia Costa</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-23" aria-label="Nadia Costa, lundi 23 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="124"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-24" aria-label="Nadia Costa, mardi 24 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="125"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-25" aria-label="Nadia Costa, mercredi 25 novembre : 7h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="126"><span class="dayh">7h</span><span class="slot m">8h30–12h30</span><span class="slot a">14h–17h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-26" aria-label="Nadia Costa, jeudi 26 novembre : 6h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="127"><span class="dayh">6h</span><span class="slot s">10h–16h</span></button></td><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-27" aria-label="Nadia Costa, vendredi 27 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="128"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-28" aria-label="Nadia Costa, samedi 28 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="129"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-11-29" aria-label="Nadia Costa, dimanche 29 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="130"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">21h</td></tr></tbody><tfoot><tr><th scope="row" class="emp">Toute l’équipe</th><td>11h30</td><td>15h30</td><td>22h30</td><td>21h30</td><td>18h30</td><td>4h</td><td><span class="zero">–</span></td><td class="tot">93h30</td></tr></tfoot></table></div></section><section class="week" aria-label="Semaine 49"><div class="weekhead"><h3>Semaine 49</h3><p>du lundi 30 novembre au dimanche 6 décembre</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="2026-11-30" data-manus_clickable="true" data-manus_click_id="131">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="2026-11-30" data-manus_clickable="true" data-manus_click_id="132">PDF</button></span></div><div class="scroll"><table class="grid"><thead><tr><th scope="col" class="emp">Employé</th><th scope="col" class="day"><span class="dn">Lun</span><span class="dd">30</span></th><th scope="col" class="day out"><span class="dn">Mar</span><span class="dd">1</span><span class="dm">déc.</span></th><th scope="col" class="day out"><span class="dn">Mer</span><span class="dd">2</span><span class="dm">déc.</span></th><th scope="col" class="day out"><span class="dn">Jeu</span><span class="dd">3</span><span class="dm">déc.</span></th><th scope="col" class="day out"><span class="dn">Ven</span><span class="dd">4</span><span class="dm">déc.</span></th><th scope="col" class="day wk out"><span class="dn">Sam</span><span class="dd">5</span><span class="dm">déc.</span></th><th scope="col" class="day wk out"><span class="dn">Dim</span><span class="dd">6</span><span class="dm">déc.</span></th><th scope="col" class="tot">Total semaine</th></tr></thead><tbody><tr><th scope="row" class="emp">Léa Martin</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-11-30" aria-label="Léa Martin, lundi 30 novembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="133"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-12-01" aria-label="Léa Martin, mardi 1er décembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="134"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-12-02" aria-label="Léa Martin, mercredi 2 décembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="135"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-12-03" aria-label="Léa Martin, jeudi 3 décembre : 7h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="136"><span class="dayh">7h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo1" data-date="2026-12-04" aria-label="Léa Martin, vendredi 4 décembre : 6h30 de travail. Modifier." data-manus_clickable="true" data-manus_click_id="137"><span class="dayh">6h30</span><span class="slot m">8h–12h</span><span class="slot a">13h30–16h</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-12-05" aria-label="Léa Martin, samedi 5 décembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="138"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo1" data-date="2026-12-06" aria-label="Léa Martin, dimanche 6 décembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="139"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h30</td></tr><tr><th scope="row" class="emp">Hugo Bernard</th><td class="cell"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-11-30" aria-label="Hugo Bernard, lundi 30 novembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="140"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-12-01" aria-label="Hugo Bernard, mardi 1er décembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="141"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-12-02" aria-label="Hugo Bernard, mercredi 2 décembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="142"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-12-03" aria-label="Hugo Bernard, jeudi 3 décembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="143"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-12-04" aria-label="Hugo Bernard, vendredi 4 décembre : 8h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="144"><span class="dayh">8h</span><span class="slot m">9h–12h30</span><span class="slot a">14h30–19h</span></button></td><td class="cell wk out"><button type="button" class="cellbtn" data-emp="demo2" data-date="2026-12-05" aria-label="Hugo Bernard, samedi 5 décembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="145"><span class="dayh">4h</span><span class="slot m">9h–13h</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo2" data-date="2026-12-06" aria-label="Hugo Bernard, dimanche 6 décembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="146"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">36h</td></tr><tr><th scope="row" class="emp">Nadia Costa</th><td class="cell"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-11-30" aria-label="Nadia Costa, lundi 30 novembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="147"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell out"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-12-01" aria-label="Nadia Costa, mardi 1er décembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="148"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-12-02" aria-label="Nadia Costa, mercredi 2 décembre : 7h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="149"><span class="dayh">7h</span><span class="slot m">8h30–12h30</span><span class="slot a">14h–17h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-12-03" aria-label="Nadia Costa, jeudi 3 décembre : 6h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="150"><span class="dayh">6h</span><span class="slot s">10h–16h</span></button></td><td class="cell out"><button type="button" class="cellbtn" data-emp="demo3" data-date="2026-12-04" aria-label="Nadia Costa, vendredi 4 décembre : 4h de travail. Modifier." data-manus_clickable="true" data-manus_click_id="151"><span class="dayh">4h</span><span class="slot m">8h30–12h30</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-12-05" aria-label="Nadia Costa, samedi 5 décembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="152"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="cell wk out"><button type="button" class="cellbtn empty" data-emp="demo3" data-date="2026-12-06" aria-label="Nadia Costa, dimanche 6 décembre : pas d’horaire. Modifier." data-manus_clickable="true" data-manus_click_id="153"><span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span></button></td><td class="tot">21h</td></tr></tbody><tfoot><tr><th scope="row" class="emp">Toute l’équipe</th><td>11h30</td><td>15h30</td><td>22h30</td><td>21h30</td><td>18h30</td><td>4h</td><td><span class="zero">–</span></td><td class="tot">93h30</td></tr></tfoot></table></div></section></main>
+</div>
+
+<div id="editor" class="overlay" hidden="">
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="edTitle">
+    <div class="phead"><div><h3 id="edTitle"></h3><p id="edDate"></p></div>
+      <button type="button" class="iconbtn" id="edClose" aria-label="Fermer sans enregistrer">×</button></div>
+    <div class="chips modes" role="radiogroup" aria-label="Type de journée">
+      <label class="chip"><input type="radio" name="edMode" id="edModeS" value="single"><span>Une seule fois dans la journée</span></label>
+      <label class="chip"><input type="radio" name="edMode" id="edModeD" value="split"><span>Matin et après-midi</span></label>
+    </div>
+    <div class="presets" role="group" aria-label="Raccourcis pour remplir la journée">
+      <button type="button" data-preset="usual">Horaires habituels</button>
+      <button type="button" data-preset="off">Repos</button>
+    </div>
+    <div class="slots">
+      <div class="slotrow s" id="rowS"><span class="slotname">Travail</span><label for="edS1">de</label><input type="time" id="edS1"><label for="edS2">à</label><input type="time" id="edS2"></div>
+      <div class="slotrow m" id="rowM"><span class="slotname">Matin</span><label for="edM1">de</label><input type="time" id="edM1"><label for="edM2">à</label><input type="time" id="edM2"></div>
+      <div class="slotrow a" id="rowA"><span class="slotname">Après-midi</span><label for="edA1">de</label><input type="time" id="edA1"><label for="edA2">à</label><input type="time" id="edA2"></div>
+    </div>
+    <p id="edHint" class="hint" hidden="">Laissez le matin ou l’après-midi vide si la personne ne travaille pas à ce moment-là.</p>
+    <p id="edInfo" class="info" role="status"></p>
+    <fieldset class="apply"><legend>Appliquer aussi à</legend><div id="edDays" class="chips"></div>
+      <button type="button" class="link" id="edWeekdays">Du lundi au vendredi</button></fieldset>
+    <div class="pfoot"><button type="button" class="btn ghost" id="edCancel">Annuler</button><button type="button" class="btn" id="edSave">Enregistrer</button></div>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden=""></div>
+<div id="cloudLoginPanel" class="overlay" role="dialog" aria-modal="true" aria-labelledby="cloudLoginTitle" hidden>
+  <form id="cloudLoginForm" class="panel">
+    <div class="phead"><div><h3 id="cloudLoginTitle">Connexion au planning</h3><p>Utilisez le compte autorisé par la responsable.</p></div><button type="button" class="iconbtn" id="cloudLoginClose" aria-label="Fermer">×</button></div>
+    <label for="cloudUsername">Nom d'utilisateur</label><input id="cloudUsername" type="text" autocomplete="username" autocapitalize="none" placeholder="Admin ou Dev" required>
+    <label for="cloudPassword">Mot de passe</label><input id="cloudPassword" type="password" autocomplete="current-password" required>
+    <p id="cloudLoginError" class="err" role="alert"></p>
+    <div class="pfoot"><button type="button" class="btn ghost" id="cloudLoginCancel">Annuler</button><button type="submit" class="btn">Se connecter</button></div>
+  </form>
+</div>
+<script type="application/json" id="savedData">null</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+(function(){
+'use strict';
+var TEMPLATE='<!doctype html>\n'+document.documentElement.outerHTML;
+var STANDALONE=!(window.claude&&typeof window.claude.use==='function');
+var SHOPS=[{id:'halles',name:'Les Halles'},{id:'corgnac',name:'Corgnac'},{id:'landouge',name:'Landouge'}];
+var MONTHS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+var MONTHS_SHORT=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+var DAYS_SHORT=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+var DAYS_LONG=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+var LS_KEY='planning-personnel-v2',LS_OLD='planning-personnel-v1',LS_SHOP='planning-boulangerie';
+var DEFAULTS={m:['08:00','12:00'],a:['13:30','17:30'],s:['08:00','16:00']};
+
+function $(id){return document.getElementById(id)}
+function pad(n){return n<10?'0'+n:''+n}
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function ds(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function parseDs(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+function addDays(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n)}
+function mondayOf(d){return addDays(d,-((d.getDay()+6)%7))}
+function dayIdx(d){return (d.getDay()+6)%7}
+function dn(d){return d.getDate()===1?'1er':String(d.getDate())}
+function keyOf(y,m){var d=new Date(y,m,1);return d.getFullYear()+'-'+pad(d.getMonth()+1)}
+function isoWeek(date){var d=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));var n=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()+4-n);var y0=new Date(Date.UTC(d.getUTCFullYear(),0,1));return Math.ceil(((d-y0)/86400000+1)/7)}
+function toMin(t){if(!t)return null;var p=t.split(':');return (+p[0])*60+(+p[1])}
+function fmtClock(t){var p=t.split(':');var h=+p[0],m=+p[1];return m?h+'h'+pad(m):h+'h'}
+function fmtDur(min){var h=Math.floor(min/60),m=min%60;return m?h+'h'+pad(m):h+'h'}
+function shiftMin(s){if(!s)return 0;var t=0;['m','a','s'].forEach(function(k){if(s[k])t+=toMin(s[k][1])-toMin(s[k][0])});return t}
+function monthWeeks(y,m){var last=new Date(y,m+1,0),start=mondayOf(new Date(y,m,1)),weeks=[];while(start<=last){var w=[];for(var i=0;i<7;i++)w.push(addDays(start,i));weeks.push(w);start=addDays(start,7)}return weeks}
+function weekRange(f,l){var s='du lundi '+dn(f);if(f.getMonth()!==l.getMonth())s+=' '+MONTHS[f.getMonth()];return s+' au dimanche '+dn(l)+' '+MONTHS[l.getMonth()]}
+function fullWeekRange(f,l){return 'du lundi '+dn(f)+' '+MONTHS[f.getMonth()]+' '+f.getFullYear()+' au dimanche '+dn(l)+' '+MONTHS[l.getMonth()]+' '+l.getFullYear()}
+function shortRange(f,l){if(f.getMonth()===l.getMonth())return f.getDate()+'–'+l.getDate()+' '+MONTHS_SHORT[l.getMonth()];return f.getDate()+' '+MONTHS_SHORT[f.getMonth()]+' – '+l.getDate()+' '+MONTHS_SHORT[l.getMonth()]}
+function newId(){return 'e'+Math.random().toString(36).slice(2,8)+Date.now().toString(36).slice(-4)}
+function shopName(id){for(var i=0;i<SHOPS.length;i++)if(SHOPS[i].id===id)return SHOPS[i].name;return id}
+function validShop(id){return SHOPS.some(function(s){return s.id===id})}
+
+/* ---------- État : une équipe et un planning par boulangerie ---------- */
+var now=new Date(),TODAY=ds(now);
+var DEMO_EMPS=[{id:'demo1',name:'Léa Martin'},{id:'demo2',name:'Hugo Bernard'},{id:'demo3',name:'Nadia Costa'}];
+var DEMO_PAT={
+ demo1:{0:{m:['08:00','12:00'],a:['13:30','17:00']},1:{m:['08:00','12:00'],a:['13:30','17:00']},2:{m:['08:00','12:00'],a:['13:30','17:00']},3:{m:['08:00','12:00'],a:['13:30','17:00']},4:{m:['08:00','12:00'],a:['13:30','16:00']}},
+ demo2:{1:{m:['09:00','12:30'],a:['14:30','19:00']},2:{m:['09:00','12:30'],a:['14:30','19:00']},3:{m:['09:00','12:30'],a:['14:30','19:00']},4:{m:['09:00','12:30'],a:['14:30','19:00']},5:{m:['09:00','13:00']}},
+ demo3:{0:{m:['08:30','12:30']},2:{m:['08:30','12:30'],a:['14:00','17:00']},3:{s:['10:00','16:00']},4:{m:['08:30','12:30']}}
+};
+var S={tab:'planning',shop:'halles',year:now.getFullYear(),month:now.getMonth(),L:{},loaded:{},booting:true,
+ demo:{cfg:{employees:clone(DEMO_EMPS),defaults:clone(DEFAULTS)},months:{}},
+ backend:'local',db:null,sb:null,currentUser:null,dl:null,confirmRemove:null,statusKind:null,statusMsg:'',pendingImport:null,fileDirty:false,unsubMonths:[],unsubCfgs:[],loadTimer:null};
+SHOPS.forEach(function(s){S.L[s.id]={cfg:null,months:{}}});
+try{var sv=localStorage.getItem(LS_SHOP);if(sv&&validShop(sv))S.shop=sv}catch(e){}
+
+function L(){return S.L[S.shop]}
+function isLive(){return !!L().cfg}
+function store(){return isLive()?L():S.demo}
+function cfg(){return store().cfg}
+function emps(){return cfg().employees}
+function loading(){return S.booting||(S.backend==='db'&&!S.loaded[S.shop])}
+function ensureDemoMonth(key){
+  if(S.demo.months[key])return;
+  var p=key.split('-'),y=+p[0],m=+p[1]-1,mo={},last=new Date(y,m+1,0).getDate();
+  DEMO_EMPS.forEach(function(e){var rec={};for(var day=1;day<=last;day++){var d=new Date(y,m,day),pat=DEMO_PAT[e.id][dayIdx(d)];if(pat)rec[ds(d)]=clone(pat)}mo[e.id]=rec});
+  S.demo.months[key]=mo;
+}
+function getShift(id,d){var key=d.slice(0,7);if(!isLive())ensureDemoMonth(key);var m=store().months[key];return (m&&m[id]&&m[id][d])||null}
+function setShift(id,d,shift){
+  var key=d.slice(0,7);if(!isLive())ensureDemoMonth(key);
+  var st=store(),mo=st.months[key]||(st.months[key]={}),rec=mo[id]||(mo[id]={});
+  if(shift)rec[d]=shift;else delete rec[d];
+}
+
+/* ---------- Enregistrement ---------- */
+function cfgPath(shop){return shop==='halles'?'planning/config':'planning/config-'+shop}
+function monthPath(shop,key){return shop==='halles'?'planning/m-'+key:'planning/m-'+shop+'-'+key}
+var writers={};
+function anyBusy(){return Object.keys(writers).some(function(k){return writers[k].busy})}
+function supaDoc(path){return {set:function(data){return S.sb.from('planning_documents').upsert({path:path,payload:data},{onConflict:'path'}).then(function(r){if(r.error)throw r.error})},onSnapshot:function(onData,onError){var stopped=false;function read(){if(stopped||!S.currentUser)return;S.sb.from('planning_documents').select('payload').eq('path',path).maybeSingle().then(function(r){if(r.error)throw r.error;onData({exists:!!r.data,data:function(){return r.data&&r.data.payload},metadata:{fromCache:false}})}).catch(function(e){if(!stopped&&onError)onError(e)})}read();var timer=setInterval(read,20000);return function(){stopped=true;clearInterval(timer)}}}}
+function supaDbAdapter(){return {doc:supaDoc}}
+function queue(path,getData){
+  var w=writers[path]||(writers[path]={busy:false,dirty:false,get:null});
+  w.get=getData;
+  if(w.busy){w.dirty=true;return}
+  w.busy=true;S.statusKind='saving';renderStatus();
+  (function loop(){
+    w.dirty=false;var data;
+    try{data=w.get()}catch(e){data={}}
+    S.db.doc(path).set(data).then(function(){
+      if(w.dirty)return loop();
+      w.busy=false;if(!anyBusy()){S.statusKind=null;S.statusMsg=''}renderStatus();
+    },function(err){
+      w.busy=false;S.statusKind='error';
+      S.statusMsg=(err&&err.code==='invalid_argument')?'Vous n’avez pas le droit de modifier ce planning.':'L’enregistrement a échoué. Vérifiez la connexion et recommencez.';
+      renderStatus();
+    });
+  })();
+}
+function allShops(){var o={};SHOPS.forEach(function(s){var l=S.L[s.id];if(l.cfg)o[s.id]={cfg:clone(l.cfg),months:clone(l.months)}});return o}
+function saveLocal(){
+  try{
+    localStorage.setItem(LS_KEY,JSON.stringify({app:'planning-personnel',v:2,saved:new Date().toISOString(),shops:allShops()}));
+    S.statusKind=null;S.statusMsg='';if(STANDALONE)S.fileDirty=true;
+  }catch(e){S.statusKind='error';S.statusMsg='Impossible d’enregistrer sur cet appareil : les changements seront perdus à la fermeture.'}
+  renderStatus();
+}
+function persistCfg(shop){
+  shop=shop||S.shop;if(!S.L[shop].cfg)return;
+  if(S.backend==='db')queue(cfgPath(shop),function(){return clone(S.L[shop].cfg)});else saveLocal();
+}
+function persistMonth(key,shop){
+  shop=shop||S.shop;if(!S.L[shop].cfg)return;
+  if(S.backend==='db')queue(monthPath(shop,key),function(){return {shifts:clone(S.L[shop].months[key]||{})}});else saveLocal();
+}
+function normalizeCfg(d){
+  var c={employees:Array.isArray(d.employees)?d.employees:[],defaults:d.defaults||clone(DEFAULTS)};
+  if(!c.defaults.m||!c.defaults.a)c.defaults=clone(DEFAULTS);
+  if(!c.defaults.s)c.defaults.s=clone(DEFAULTS.s);
+  return c;
+}
+/* Une sauvegarde (ancienne ou nouvelle) devient {boulangerie:{cfg,months}} ; une ancienne sauvegarde va aux Halles. */
+function toShops(o){
+  if(!o)return null;
+  var sh=o.shops&&typeof o.shops==='object'?o.shops:(o.cfg?{halles:{cfg:o.cfg,months:o.months||{}}}:null);
+  if(!sh)return null;
+  var out={},any=false;
+  SHOPS.forEach(function(s){var x=sh[s.id];if(x&&x.cfg&&Array.isArray(x.cfg.employees)&&(!x.months||typeof x.months==='object')){out[s.id]={cfg:x.cfg,months:x.months||{}};any=true}});
+  return any?out:null;
+}
+function readEmbedded(){
+  try{var el=$('savedData'),t=el&&el.textContent.trim();if(t&&t!=='null'){var o=JSON.parse(t);if(toShops(o))return o}}catch(e){}
+  return null;
+}
+function loadLocal(){
+  var loc=null;
+  try{var raw=localStorage.getItem(LS_KEY)||localStorage.getItem(LS_OLD);if(raw){var p=JSON.parse(raw);if(toShops(p))loc=p}}catch(e){}
+  var emb=STANDALONE?readEmbedded():null,pick=loc;
+  if(emb&&(!loc||String(emb.saved||'')>String(loc.saved||'')))pick=emb;
+  if(pick){var sh=toShops(pick);SHOPS.forEach(function(s){S.L[s.id]=sh[s.id]?{cfg:normalizeCfg(clone(sh[s.id].cfg)),months:clone(sh[s.id].months)}:{cfg:null,months:{}}})}
+  S.fileDirty=STANDALONE&&!!loc&&pick===loc;
+}
+function subscribeMonths(){
+  if(S.backend!=='db'||!S.db)return;
+  S.unsubMonths.forEach(function(f){try{f()}catch(e){}});S.unsubMonths=[];
+  var shop=S.shop;
+  [keyOf(S.year,S.month-1),keyOf(S.year,S.month),keyOf(S.year,S.month+1)].forEach(function(key){
+    S.unsubMonths.push(S.db.doc(monthPath(shop,key)).onSnapshot(function(snap){
+      var data=snap.exists?snap.data():null;
+      S.L[shop].months[key]=(data&&data.shifts)?clone(data.shifts):{};
+      render();
+    },function(){S.statusKind='error';S.statusMsg='La lecture du planning a échoué. Rechargez la page.';renderStatus()}));
+  });
+}
+function subscribeCfgs(){
+  S.loadTimer=setTimeout(function(){
+    var late=false;
+    SHOPS.forEach(function(s){if(!S.loaded[s.id]){S.loaded[s.id]=true;late=true}});
+    if(late){S.statusKind='error';S.statusMsg='Connexion lente : le planning peut être incomplet.';render()}
+  },10000);
+  SHOPS.forEach(function(s){
+    var shop=s.id;
+    S.unsubCfgs.push(S.db.doc(cfgPath(shop)).onSnapshot(function(snap){
+      if(snap.exists)S.L[shop].cfg=normalizeCfg(clone(snap.data()));
+      else if(!snap.metadata.fromCache)S.L[shop].cfg=null;
+      if(!snap.metadata.fromCache||snap.exists){
+        S.loaded[shop]=true;
+        if(S.statusKind==='error'&&/lente/.test(S.statusMsg)){S.statusKind=null;S.statusMsg=''}
+      }
+      render();
+    },function(){
+      S.loaded[shop]=true;S.statusKind='error';S.statusMsg='La lecture du planning a échoué. Rechargez la page.';render();
+    }));
+  });
+}
+
+/* ---------- Affichage : en-tête ---------- */
+function statusInfo(){
+  if(loading())return ['wait','Chargement…'];
+  if(S.statusKind==='saving')return ['wait','Enregistrement…'];
+  if(S.statusKind==='error')return ['bad',S.statusMsg||'L’enregistrement a échoué.'];
+  if(!isLive())return ['demo','Exemple : rien n’est enregistré'];
+  if(STANDALONE&&S.backend!=='db')return ['ok','Enregistré sur cet appareil'];
+  return ['ok',S.backend==='db'?'Enregistré':'Enregistré sur cet appareil'];
+}
+function renderStatus(){var i=statusInfo(),el=$('status');el.className='status '+i[0];el.lastChild.textContent=i[1]}
+function renderCloudAuth(){var cloud=S.backend==='db'&&S.sb; $('cloudSignIn').hidden=!cloud||!!S.currentUser; $('cloudSignOut').hidden=!cloud||!S.currentUser}
+function renderHeader(){
+  var name=MONTHS[S.month];
+  $('monthLabel').textContent=name.charAt(0).toUpperCase()+name.slice(1)+' '+S.year;
+  ['planning','totals','team'].forEach(function(t){$('tab-'+t).setAttribute('aria-selected',S.tab===t?'true':'false')});
+  $('shops').innerHTML=SHOPS.map(function(s){return '<button type="button" role="tab" data-shop="'+s.id+'" aria-selected="'+(s.id===S.shop)+'">'+esc(s.name)+'</button>'}).join('');
+  renderStatus();
+  renderCloudAuth();
+  var b='';
+  if(S.pendingImport){
+    var n=0,k=0;SHOPS.forEach(function(s){var x=S.pendingImport.shops[s.id];if(x){k++;n+=x.cfg.employees.length}});
+    var sd=S.pendingImport.saved?new Date(S.pendingImport.saved):null;
+    var when=sd&&!isNaN(sd)?' du '+pad(sd.getDate())+'/'+pad(sd.getMonth()+1)+'/'+sd.getFullYear():'';
+    b='<div class="banner"><p><strong>Restaurer la sauvegarde'+when+' ('+k+' boulangerie'+(k>1?'s':'')+', '+n+' employé'+(n>1?'s':'')+') ?</strong> Les plannings de ces boulangeries seront remplacés.</p>'+
+      '<span class="tools"><button type="button" class="btn" data-act="import-yes">Oui, restaurer</button><button type="button" class="btn ghost" data-act="import-no">Annuler</button></span></div>';
+  }else if(!isLive()&&!loading()){
+    b='<div class="banner"><p><strong>Boulangerie '+esc(shopName(S.shop))+' : pas encore d’équipe.</strong> Ce que vous voyez est un exemple inventé. Vous pouvez essayer, mais rien n’est conservé.</p>'+
+      '<button type="button" class="btn" data-act="start-live">Commencer l’équipe de '+esc(shopName(S.shop))+'</button></div>';
+  }
+  $('banner').innerHTML=b;
+  $('saveCopy').hidden=!SHOPS.some(function(s){return S.L[s.id].cfg});
+}
+
+/* ---------- Affichage : planning ---------- */
+function emptyTeamHTML(){
+  return '<div class="empty-state"><h3>Aucun employé pour l’instant</h3><p class="hint">Ajoutez les personnes de l’équipe de '+esc(shopName(S.shop))+', puis remplissez leurs horaires jour par jour.</p>'+
+    '<button type="button" class="btn" data-act="goto-team">Ajouter l’équipe</button></div>';
+}
+function cellHTML(e,d,dsr,sh,mins,i){
+  var cls='cell'+(i>=5?' wk':'')+(d.getMonth()!==S.month?' out':'');
+  var label=e.name+', '+DAYS_LONG[i]+' '+dn(d)+' '+MONTHS[d.getMonth()]+' : '+(sh?fmtDur(mins)+' de travail':'pas d’horaire')+'. Modifier.';
+  var inner,bcls='cellbtn';
+  if(sh){
+    inner='<span class="dayh">'+fmtDur(mins)+'</span>'+
+      (sh.s?'<span class="slot s">'+fmtClock(sh.s[0])+'–'+fmtClock(sh.s[1])+'</span>':'')+
+      (sh.m?'<span class="slot m">'+fmtClock(sh.m[0])+'–'+fmtClock(sh.m[1])+'</span>':'')+
+      (sh.a?'<span class="slot a">'+fmtClock(sh.a[0])+'–'+fmtClock(sh.a[1])+'</span>':'');
+  }else{bcls+=' empty';inner='<span class="dash" aria-hidden="true">—</span><span class="plus" aria-hidden="true">+</span>'}
+  return '<td class="'+cls+'"><button type="button" class="'+bcls+'" data-emp="'+esc(e.id)+'" data-date="'+dsr+'" aria-label="'+esc(label)+'">'+inner+'</button></td>';
+}
+function weekHTML(days){
+  var E=emps(),first=days[0],last=days[6];
+  var head='<th scope="col" class="emp">Employé</th>';
+  days.forEach(function(d,i){
+    var c='day'+(i>=5?' wk':'')+(d.getMonth()!==S.month?' out':'')+(ds(d)===TODAY?' today':'');
+    head+='<th scope="col" class="'+c+'"><span class="dn">'+DAYS_SHORT[i]+'</span><span class="dd">'+d.getDate()+'</span>'+(d.getMonth()!==S.month?'<span class="dm">'+MONTHS_SHORT[d.getMonth()]+'</span>':'')+'</th>';
+  });
+  head+='<th scope="col" class="tot">Total semaine</th>';
+  var dayTot=[0,0,0,0,0,0,0],grand=0,rows='';
+  E.forEach(function(e){
+    var tot=0,cells='';
+    days.forEach(function(d,i){var dsr=ds(d),sh=getShift(e.id,dsr),mins=shiftMin(sh);tot+=mins;dayTot[i]+=mins;cells+=cellHTML(e,d,dsr,sh,mins,i)});
+    grand+=tot;
+    rows+='<tr><th scope="row" class="emp">'+esc(e.name)+'</th>'+cells+'<td class="tot">'+(tot?fmtDur(tot):'<span class="zero">0h</span>')+'</td></tr>';
+  });
+  var foot='<tr><th scope="row" class="emp">Toute l’équipe</th>'+dayTot.map(function(m){return '<td>'+(m?fmtDur(m):'<span class="zero">–</span>')+'</td>'}).join('')+'<td class="tot">'+fmtDur(grand)+'</td></tr>';
+  return '<section class="week" aria-label="Semaine '+isoWeek(first)+'"><div class="weekhead"><h3>Semaine '+isoWeek(first)+'</h3><p>'+weekRange(first,last)+'</p><span class="week-actions"><button type="button" class="btn ghost small" data-act="export-week-excel" data-week-start="'+ds(first)+'">Excel (.xlsx)</button><button type="button" class="btn ghost small" data-act="export-week-pdf" data-week-start="'+ds(first)+'">PDF</button></span></div>'+
+    '<div class="scroll"><table class="grid"><thead><tr>'+head+'</tr></thead><tbody>'+rows+'</tbody><tfoot>'+foot+'</tfoot></table></div></section>';
+}
+function planningHTML(){
+  if(!emps().length)return emptyTeamHTML();
+  var legend='<div class="legend"><span><i class="slot s">Une seule période</i></span><span><i class="slot m">Matin</i></span><span><i class="slot a">Après-midi</i></span>'+
+    '<span><i class="swatch-out"></i>Jour du mois voisin : compté dans la semaine, pas dans le mois</span></div>';
+  return legend+monthWeeks(S.year,S.month).map(weekHTML).join('');
+}
+
+/* ---------- Affichage : totaux ---------- */
+function totalsHTML(){
+  var E=emps();if(!E.length)return emptyTeamHTML();
+  var weeks=monthWeeks(S.year,S.month);
+  var head='<th scope="col" class="emp">Employé</th>'+weeks.map(function(w){return '<th scope="col"><span class="wk">S'+isoWeek(w[0])+'</span><span class="wr">'+shortRange(w[0],w[6])+'</span></th>'}).join('')+'<th scope="col">Jours travaillés</th><th scope="col">Total du mois</th>';
+  var colTot=weeks.map(function(){return 0}),monthGrand=0,daysGrand=0,rows='';
+  E.forEach(function(e){
+    var mt=0,dw=0,cells='';
+    weeks.forEach(function(w,wi){
+      var wt=0;
+      w.forEach(function(d){var mins=shiftMin(getShift(e.id,ds(d)));wt+=mins;if(d.getMonth()===S.month&&mins){mt+=mins;dw++}});
+      colTot[wi]+=wt;cells+='<td class="v">'+(wt?fmtDur(wt):'<span class="zero">0h</span>')+'</td>';
+    });
+    monthGrand+=mt;daysGrand+=dw;
+    rows+='<tr><th scope="row" class="emp">'+esc(e.name)+'</th>'+cells+'<td class="v">'+dw+'</td><td class="v big">'+(mt?fmtDur(mt):'<span class="zero">0h</span>')+'</td></tr>';
+  });
+  var foot='<tr><th scope="row" class="emp">Toute l’équipe</th>'+colTot.map(function(m){return '<td>'+fmtDur(m)+'</td>'}).join('')+'<td>'+daysGrand+'</td><td class="tot">'+fmtDur(monthGrand)+'</td></tr>';
+  var name=MONTHS[S.month];
+  return '<section class="totals"><div class="weekhead"><h3>Heures de '+name+' '+S.year+' · '+esc(shopName(S.shop))+'</h3>'+
+    (S.dl?'<button type="button" class="btn ghost small" data-act="export">Exporter le mois (Excel)</button>':'')+'</div>'+
+    '<div class="scroll"><table><thead><tr>'+head+'</tr></thead><tbody>'+rows+'</tbody><tfoot>'+foot+'</tfoot></table></div>'+
+    '<p class="note">Chaque colonne de semaine compte la semaine entière, du lundi au dimanche. Le total du mois compte seulement les jours de '+name+'.</p></section>';
+}
+
+/* ---------- Affichage : équipe ---------- */
+function teamHTML(){
+  var E=emps(),d=cfg().defaults;
+  var list=E.map(function(e){
+    var row='<li><label class="vh" for="name-'+esc(e.id)+'">Nom de l’employé</label><input type="text" class="nameinput" id="name-'+esc(e.id)+'" data-emp="'+esc(e.id)+'" value="'+esc(e.name)+'" maxlength="60" autocomplete="off">';
+    if(S.confirmRemove===e.id){
+      row+='<div class="confirm"><span>Retirer '+esc(e.name)+' et supprimer ses horaires ?</span><button type="button" class="btn danger small" data-act="confirm-remove" data-emp="'+esc(e.id)+'">Oui, retirer</button><button type="button" class="btn ghost small" data-act="cancel-remove">Garder</button></div>';
+    }else row+='<button type="button" class="btn ghost small" data-act="remove" data-emp="'+esc(e.id)+'" aria-label="Retirer '+esc(e.name)+'">Retirer</button>';
+    return row+'</li>';
+  }).join('');
+  function def(k,lbl,cls){var p='d'+k.toUpperCase();return '<span class="lbl"><i class="slot '+k+'">'+lbl+'</i></span><div><label class="t" for="'+p+'1">de</label><input class="field" type="time" id="'+p+'1" value="'+d[k][0]+'"></div><div><label class="t" for="'+p+'2">à</label><input class="field" type="time" id="'+p+'2" value="'+d[k][1]+'"></div>'}
+  return '<div class="team"><section class="card"><h3>Employés · '+esc(shopName(S.shop))+'</h3><p class="hint">Cette équipe est propre à la boulangerie '+esc(shopName(S.shop))+'. Modifiez un nom directement dans la liste.</p>'+
+    (E.length?'<ul class="emplist">'+list+'</ul>':'<p class="hint">Personne pour l’instant.</p>')+
+    '<form id="addForm" class="addrow" autocomplete="off"><label class="vh" for="newName">Nom du nouvel employé</label><input class="field" id="newName" type="text" placeholder="Prénom Nom" maxlength="60"><button type="submit" class="btn">Ajouter</button></form></section>'+
+    '<section class="card"><h3>Horaires habituels · '+esc(shopName(S.shop))+'</h3><p class="hint">Ils remplissent une journée en un clic avec « Horaires habituels » : une seule période, ou matin et après-midi.</p>'+
+    '<div class="defs">'+def('m','Matin')+def('a','Après-midi')+def('s','Une seule période')+'</div><p id="defErr" class="err" role="alert"></p></section></div>';
+}
+
+function render(force){
+  var view=$('view');
+  if(!force&&S.tab==='team'&&view.contains(document.activeElement)&&document.activeElement.tagName==='INPUT')return;
+  renderHeader();
+  if(loading()){view.innerHTML='<p class="loading">Chargement du planning…</p>';return}
+  view.innerHTML=S.tab==='planning'?planningHTML():S.tab==='totals'?totalsHTML():teamHTML();
+}
+
+/* ---------- Fenêtre de saisie ---------- */
+var ED=null;
+function slotVals(sh,k,i){return sh&&sh[k]?sh[k][i]:''}
+function getMode(){return $('edModeD').checked?'split':'single'}
+function showMode(){var split=getMode()==='split';$('rowS').hidden=split;$('rowM').hidden=!split;$('rowA').hidden=!split;$('edHint').hidden=!split}
+function openEditor(empId,date,trigger){
+  var e=emps().find(function(x){return x.id===empId});if(!e)return;
+  var sh=getShift(empId,date),d=parseDs(date);
+  ED={empId:empId,date:date};
+  $('edTitle').textContent=e.name+' · '+shopName(S.shop);
+  $('edDate').textContent=DAYS_LONG[dayIdx(d)]+' '+dn(d)+' '+MONTHS[d.getMonth()]+' '+d.getFullYear();
+  $('edS1').value=slotVals(sh,'s',0);$('edS2').value=slotVals(sh,'s',1);
+  $('edM1').value=slotVals(sh,'m',0);$('edM2').value=slotVals(sh,'m',1);
+  $('edA1').value=slotVals(sh,'a',0);$('edA2').value=slotVals(sh,'a',1);
+  var split=!!(sh&&(sh.m||sh.a));
+  $('edModeS').checked=!split;$('edModeD').checked=split;showMode();
+  var mon=mondayOf(d),chips='';
+  for(var i=0;i<7;i++){var dd=addDays(mon,i),v=ds(dd),cur=v===date;
+    chips+='<label class="chip"><input type="checkbox" id="edDay'+i+'" value="'+v+'"'+(cur?' checked disabled':'')+'><span>'+DAYS_SHORT[i]+' '+dd.getDate()+'</span></label>'}
+  $('edDays').innerHTML=chips;
+  $('editor').hidden=false;checkEditor();
+  (split?$('edM1'):$('edS1')).focus();
+}
+function closeEditor(){
+  var t=ED;$('editor').hidden=true;ED=null;
+  if(t){var btn=document.querySelector('.cellbtn[data-emp="'+t.empId+'"][data-date="'+t.date+'"]');if(btn)btn.focus()}
+}
+function readEditor(){
+  var err='';
+  function slot(a,b,name){
+    if(!a&&!b)return null;
+    if(!a||!b){err=err||'Indiquez l’heure de début et de fin '+name+'.';return null}
+    if(toMin(b)<=toMin(a)){err=err||'La fin '+name+' doit être après le début.';return null}
+    return [a,b];
+  }
+  var shift=null;
+  if(getMode()==='single'){var s=slot($('edS1').value,$('edS2').value,'de la journée');if(s)shift={s:s}}
+  else{
+    var m=slot($('edM1').value,$('edM2').value,'du matin'),a=slot($('edA1').value,$('edA2').value,'de l’après-midi');
+    if(m&&a&&toMin(a[0])<toMin(m[1]))err=err||'L’après-midi doit commencer après la fin du matin.';
+    if(m||a){shift={};if(m)shift.m=m;if(a)shift.a=a}
+  }
+  return {err:err,shift:shift,total:shiftMin(shift)};
+}
+function checkEditor(){
+  var r=readEditor(),info=$('edInfo');
+  info.className='info'+(r.err?' bad':'');
+  info.textContent=r.err||(r.shift?'Total du jour : '+fmtDur(r.total):'Aucun horaire : jour de repos.');
+  $('edSave').disabled=!!r.err;return r;
+}
+function applyPreset(p){
+  var d=cfg().defaults,on=p==='usual',split=getMode()==='split';
+  var s=(on&&!split)?d.s:['',''],m=(on&&split)?d.m:['',''],a=(on&&split)?d.a:['',''];
+  $('edS1').value=s[0];$('edS2').value=s[1];$('edM1').value=m[0];$('edM2').value=m[1];$('edA1').value=a[0];$('edA2').value=a[1];checkEditor();
+}
+function changeMode(){
+  showMode();var d=cfg().defaults;
+  if(getMode()==='single'){if(!$('edS1').value&&!$('edS2').value){$('edS1').value=d.s[0];$('edS2').value=d.s[1]}}
+  else if(!$('edM1').value&&!$('edM2').value&&!$('edA1').value&&!$('edA2').value){$('edM1').value=d.m[0];$('edM2').value=d.m[1];$('edA1').value=d.a[0];$('edA2').value=d.a[1]}
+  checkEditor();
+}
+function saveEditor(){
+  var r=checkEditor();if(r.err||!ED)return;
+  var dates=[ED.date];
+  document.querySelectorAll('#edDays input:checked:not(:disabled)').forEach(function(c){dates.push(c.value)});
+  var keys={},shop=S.shop;
+  dates.forEach(function(d){setShift(ED.empId,d,r.shift?clone(r.shift):null);keys[d.slice(0,7)]=1});
+  Object.keys(keys).forEach(function(k){persistMonth(k,shop)});
+  closeEditor();render(true);renderStatus();
+}
+
+/* ---------- Actions ---------- */
+var toastTimer=null;
+function toast(msg){var t=$('toast');t.textContent=msg;t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.hidden=true},3500)}
+function focusNew(){setTimeout(function(){var n=$('newName');if(n)n.focus()},0)}
+function startLive(){
+  L().cfg={employees:[],defaults:clone(S.demo.cfg.defaults)};
+  persistCfg();S.tab='team';render(true);focusNew();
+}
+function addEmployee(){
+  var inp=$('newName'),name=inp.value.trim();
+  if(!name){inp.focus();return}
+  cfg().employees.push({id:newId(),name:name});persistCfg();render(true);focusNew();
+}
+function removeEmployee(id){
+  var c=cfg();c.employees=c.employees.filter(function(e){return e.id!==id});
+  var st=store();
+  Object.keys(st.months).forEach(function(k){if(st.months[k][id]){delete st.months[k][id];persistMonth(k)}});
+  S.confirmRemove=null;persistCfg();render(true);
+}
+function renameEmployee(id,val){
+  var e=emps().find(function(x){return x.id===id});if(!e)return;
+  val=val.trim();if(!val){render(true);return}
+  if(val!==e.name){e.name=val;persistCfg()}
+}
+function changeDefaults(){
+  var v=[$('dM1').value,$('dM2').value,$('dA1').value,$('dA2').value,$('dS1').value,$('dS2').value],err=$('defErr');
+  if(v.some(function(x){return !x})||toMin(v[1])<=toMin(v[0])||toMin(v[3])<=toMin(v[2])||toMin(v[2])<toMin(v[1])||toMin(v[5])<=toMin(v[4])){
+    err.textContent='Vérifiez les heures : chaque période doit finir après son début, et l’après-midi après le matin.';return}
+  err.textContent='';cfg().defaults={m:[v[0],v[1]],a:[v[2],v[3]],s:[v[4],v[5]]};persistCfg();
+}
+function csvCell(v){v=String(v);return /[";\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+function exportCsv(){
+  var key=keyOf(S.year,S.month),last=new Date(S.year,S.month+1,0).getDate();
+  var rows=[['Boulangerie','Employé','Date','Jour','Une période début','Une période fin','Matin début','Matin fin','Après-midi début','Après-midi fin','Heures']];
+  emps().forEach(function(e){
+    for(var day=1;day<=last;day++){
+      var d=new Date(S.year,S.month,day),sh=getShift(e.id,ds(d));if(!sh)continue;
+      rows.push([shopName(S.shop),e.name,pad(day)+'/'+pad(S.month+1)+'/'+S.year,DAYS_LONG[dayIdx(d)],sh.s?sh.s[0]:'',sh.s?sh.s[1]:'',sh.m?sh.m[0]:'',sh.m?sh.m[1]:'',sh.a?sh.a[0]:'',sh.a?sh.a[1]:'',(shiftMin(sh)/60).toFixed(2).replace('.',',')]);
+    }
+  });
+  if(rows.length===1){toast('Aucun horaire à exporter ce mois-ci.');return}
+  var csv='\ufeff'+rows.map(function(r){return r.map(csvCell).join(';')}).join('\r\n');
+  S.dl.save({filename:'planning-'+S.shop+'-'+key+'.csv',data:csv}).then(function(){toast('Fichier enregistré')},function(err){if(err&&err.code==='declined')return;toast('L’export n’a pas pu être enregistré.')});
+}
+function excelColumn(n){
+  var s='';while(n>0){var r=(n-1)%26;s=String.fromCharCode(65+r)+s;n=Math.floor((n-1)/26)}return s;
+}
+function xmlEsc(v){return String(v==null?'':v).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;')}
+function zipCrc(bytes){
+  if(!zipCrc.table){zipCrc.table=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);zipCrc.table[n]=c>>>0}}
+  var crc=0xFFFFFFFF;for(var i=0;i<bytes.length;i++)crc=zipCrc.table[(crc^bytes[i])&255]^(crc>>>8);return (crc^0xFFFFFFFF)>>>0;
+}
+function zipJoin(parts){var length=0;parts.forEach(function(p){length+=p.length});var out=new Uint8Array(length),at=0;parts.forEach(function(p){out.set(p,at);at+=p.length});return out}
+function zip16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function zip32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function makeStoredZip(files){
+  var enc=new TextEncoder(),locals=[],centrals=[],offset=0,names=Object.keys(files),date=33;
+  names.forEach(function(name){
+    var nb=enc.encode(name),data=enc.encode(files[name]),crc=zipCrc(data);
+    var local=zipJoin([zip32(0x04034b50),zip16(20),zip16(0x0800),zip16(0),zip16(0),zip16(date),zip32(crc),zip32(data.length),zip32(data.length),zip16(nb.length),zip16(0),nb,data]);
+    locals.push(local);
+    centrals.push(zipJoin([zip32(0x02014b50),zip16(20),zip16(20),zip16(0x0800),zip16(0),zip16(0),zip16(date),zip32(crc),zip32(data.length),zip32(data.length),zip16(nb.length),zip16(0),zip16(0),zip16(0),zip16(0),zip32(0),zip32(offset),nb]));
+    offset+=local.length;
+  });
+  var central=zipJoin(centrals),end=zipJoin([zip32(0x06054b50),zip16(0),zip16(0),zip16(names.length),zip16(names.length),zip32(central.length),zip32(offset),zip16(0)]);
+  return new Blob(locals.concat([central,end]),{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+function downloadBlob(blob,name){var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},3000)}
+function exportWeekExcel(startDate){
+  if(!emps().length){toast('Aucun employé à exporter.');return}
+  var start=parseDs(startDate),days=[],end=addDays(start,6),weekNo=isoWeek(start),E=emps(),encoder=new TextEncoder(),xmlRows=[],r=0;
+  for(var i=0;i<7;i++)days.push(addDays(start,i));
+  function strCell(col,value,style){var ref=excelColumn(col)+(r+1);return '<c r="'+ref+'" s="'+(style||0)+'" t="inlineStr"><is><t xml:space="preserve">'+xmlEsc(value).replace(/\n/g,'&#10;')+'</t></is></c>'}
+  function numCell(col,value,style){return '<c r="'+excelColumn(col)+(r+1)+'" s="'+(style||0)+'" t="n"><v>'+Number(value||0).toFixed(4).replace(/0+$/,'').replace(/\.$/,'')+'</v></c>'}
+  function row(cells,attrs){r++;xmlRows.push('<row r="'+r+'"'+(attrs||'')+'>'+cells.join('')+'</row>')}
+  row([strCell(1,'TANTE ADÈLE · PLANNING HEBDOMADAIRE',1)],' ht="32" customHeight="1"');
+  row([strCell(1,'Boulangerie '+shopName(S.shop)+'  |  Semaine '+weekNo+'  |  '+fullWeekRange(start,end),2)],' ht="25" customHeight="1"');
+  row([],' ht="8" customHeight="1"');
+  var heads=[strCell(1,'ÉQUIPE',3)];days.forEach(function(d,i){heads.push(strCell(i+2,DAYS_SHORT[i]+' '+pad(d.getDate())+'/'+pad(d.getMonth()+1),3))});heads.push(strCell(9,'TOTAL',3));row(heads,' ht="30" customHeight="1"');
+  var dayTotals=[0,0,0,0,0,0,0],grand=0;
+  E.forEach(function(e){
+    var cells=[strCell(1,e.name,4)],employeeTotal=0;
+    days.forEach(function(d,i){var sh=getShift(e.id,ds(d)),mins=shiftMin(sh),parts=[];employeeTotal+=mins;dayTotals[i]+=mins;
+      if(sh){if(sh.s)parts.push('Une période : '+sh.s[0]+'–'+sh.s[1]);if(sh.m)parts.push('Matin : '+sh.m[0]+'–'+sh.m[1]);if(sh.a)parts.push('Après-midi : '+sh.a[0]+'–'+sh.a[1])}else parts.push('Repos');
+      cells.push(strCell(i+2,parts.join('\n'),5));
+    });
+    grand+=employeeTotal;cells.push(numCell(9,employeeTotal/60,6));row(cells,' ht="38" customHeight="1"');
+  });
+  var totals=[strCell(1,'TOTAL ÉQUIPE',7)];dayTotals.forEach(function(v,i){totals.push(numCell(i+2,v/60,6))});totals.push(numCell(9,grand/60,6));row(totals,' ht="26" customHeight="1"');
+  row([strCell(1,'Horaires au format 24 h. Durées exprimées en heures décimales. La semaine complète (lundi à dimanche) est incluse, même si elle chevauche deux mois.',8)],' ht="30" customHeight="1"');
+  var lastRow=r,styles='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="1"><numFmt numFmtId="164" formatCode="0.00 &quot;h&quot;"/></numFmts><fonts count="5"><font><sz val="10"/><name val="Arial"/><color rgb="FF243629"/></font><font><b/><sz val="16"/><name val="Arial"/><color rgb="FFFFFFFF"/></font><font><b/><sz val="10"/><name val="Arial"/><color rgb="FFFFFFFF"/></font><font><b/><sz val="10"/><name val="Arial"/><color rgb="FF17472A"/></font><font><i/><sz val="9"/><name val="Arial"/><color rgb="FF53665A"/></font></fonts><fills count="5"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF17472A"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFE5F1E3"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFF3F6F1"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FFCBD8C5"/></left><right style="thin"><color rgb="FFCBD8C5"/></right><top style="thin"><color rgb="FFCBD8C5"/></top><bottom style="thin"><color rgb="FFCBD8C5"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="9"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="left" vertical="center"/></xf><xf numFmtId="0" fontId="3" fillId="3" borderId="0" xfId="0" applyFont="1" applyFill="1"><alignment horizontal="left" vertical="center"/></xf><xf numFmtId="0" fontId="2" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="3" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="left" vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="164" fontId="3" fillId="3" borderId="1" xfId="0" applyNumberFormat="1" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="center" vertical="center"/></xf><xf numFmtId="0" fontId="2" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="left" vertical="center"/></xf><xf numFmtId="0" fontId="4" fillId="0" borderId="0" xfId="0" applyFont="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';
+  var sheet='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><dimension ref="A1:I'+lastRow+'"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="4" topLeftCell="A5" activePane="bottomLeft" state="frozen"/><selection pane="bottomLeft" activeCell="A5" sqref="A5"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="22"/><cols><col min="1" max="1" width="23" customWidth="1"/><col min="2" max="8" width="25" customWidth="1"/><col min="9" max="9" width="14" customWidth="1"/></cols><sheetData>'+xmlRows.join('')+'</sheetData><mergeCells count="3"><mergeCell ref="A1:I1"/><mergeCell ref="A2:I2"/><mergeCell ref="A'+lastRow+':I'+lastRow+'"/></mergeCells><pageMargins left="0.25" right="0.25" top="0.5" bottom="0.5" header="0.2" footer="0.2"/><pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/></worksheet>';
+  var workbook='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Planning" sheetId="1" r:id="rId1"/></sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>';
+  var files={'[Content_Types].xml':'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>','_rels/.rels':'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>','xl/workbook.xml':workbook,'xl/_rels/workbook.xml.rels':'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>','xl/styles.xml':styles,'xl/worksheets/sheet1.xml':sheet};
+  var blob=makeStoredZip(files);downloadBlob(blob,'planning-'+S.shop+'-semaine-'+startDate+'.xlsx');toast('Classeur Excel de la semaine téléchargé.');
+}
+function exportWeekPdf(startDate){
+  if(!emps().length){toast('Aucun employé à exporter.');return}
+  var start=parseDs(startDate),days=[],end=addDays(start,6),weekNo=isoWeek(start),E=emps(),dayTotals=[0,0,0,0,0,0,0],grand=0;
+  for(var d=0;d<7;d++)days.push(addDays(start,d));
+  var w=window.open('','_blank');if(!w){toast('Autorisez les fenêtres contextuelles pour imprimer le planning.');return}
+  function printCell(e,date,i){var sh=getShift(e.id,ds(date)),mins=shiftMin(sh),parts=[];dayTotals[i]+=mins;if(!sh)return '<td class="shift rest">Repos</td>';
+    if(sh.s)parts.push('<span>Horaire unique&nbsp; '+esc(sh.s[0])+'–'+esc(sh.s[1])+'</span>');
+    if(sh.m)parts.push('<span>Matin&nbsp; '+esc(sh.m[0])+'–'+esc(sh.m[1])+'</span>');
+    if(sh.a)parts.push('<span>Après-midi&nbsp; '+esc(sh.a[0])+'–'+esc(sh.a[1])+'</span>');
+    return '<td class="shift"><strong>'+fmtDur(mins)+'</strong><div class="times">'+parts.join('')+'</div></td>';
+  }
+  var headings='<th class="person">Employé</th>';days.forEach(function(date,i){headings+='<th>'+DAYS_LONG[i]+'<small>'+pad(date.getDate())+' '+MONTHS[date.getMonth()]+'</small></th>'});headings+='<th class="sum">Total semaine</th>';
+  var body='';E.forEach(function(e){var sum=0,cells='';days.forEach(function(date,i){var sh=getShift(e.id,ds(date));sum+=shiftMin(sh);cells+=printCell(e,date,i)});grand+=sum;body+='<tr><th scope="row" class="person">'+esc(e.name)+'</th>'+cells+'<td class="sum">'+fmtDur(sum)+'</td></tr>'});
+  var footer='<tr class="team-total"><th scope="row" class="person">Toute l’équipe</th>'+dayTotals.map(function(m){return '<td>'+fmtDur(m)+'</td>'}).join('')+'<td class="sum">'+fmtDur(grand)+'</td></tr>';
+  var generated=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+  var styles='@page{size:A4 landscape;margin:10mm}*{box-sizing:border-box}body{font:11px Arial,Helvetica,sans-serif;color:#1d3024;margin:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.masthead{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #2e7d3a;padding:0 0 10px;margin-bottom:14px}.identity{display:flex;align-items:center;gap:12px}.monogram{display:grid;place-items:center;width:42px;height:42px;border-radius:9px;background:#17472a;color:#fff;font-weight:bold;font-size:16px}.identity strong{display:block;font-size:17px;letter-spacing:.08em;color:#17472a}.identity small{display:block;margin-top:2px;letter-spacing:.12em;color:#53665a;font-size:9px}.internal{font-size:9px;letter-spacing:.12em;color:#53665a;border:1px solid #cbd8c5;border-radius:4px;padding:6px 9px}.title{display:flex;justify-content:space-between;align-items:flex-end;margin:0 0 12px}.title h1{margin:0;font-size:21px;letter-spacing:.02em;color:#17472a}.title p{margin:4px 0 0;color:#53665a;font-size:12px}.period{font-size:10px;text-align:right;color:#53665a}.metadata{display:flex;gap:8px;margin:0 0 12px}.metadata span{background:#f3f6f1;border:1px solid #d1ddcd;border-radius:4px;padding:5px 8px}.metadata strong{color:#17472a}.schedule{width:100%;table-layout:fixed;border-collapse:collapse}.schedule th,.schedule td{border:1px solid #cbd8c5;padding:6px 5px;vertical-align:middle}.schedule thead th{background:#e5f1e3;color:#17472a;text-align:center;font-size:10px;height:34px}.schedule thead small{display:block;color:#53665a;font-weight:400;font-size:9px;margin-top:3px}.schedule th.person{width:15%;text-align:left;padding-left:9px}.schedule th.sum,.schedule td.sum{width:9%;text-align:center;font-weight:bold;white-space:nowrap;background:#f3f6f1}.schedule td.shift{text-align:center;height:48px}.schedule td.shift strong{display:block;font-size:11px;color:#17472a;margin-bottom:3px}.times span{display:block;font-size:9px;line-height:1.35}.schedule td.rest{color:#819083;font-style:italic;text-align:center}.schedule tbody th.person{font-size:10px;background:#fafcf9}.schedule tr.team-total th,.schedule tr.team-total td{font-weight:bold;background:#e5f1e3;border-top:2px solid #789574}.schedule tr{break-inside:avoid}.legend{margin-top:10px;padding:7px 9px;background:#f3f6f1;border-left:3px solid #2e7d3a;color:#53665a;font-size:9px}.foot{display:flex;justify-content:space-between;margin-top:12px;padding-top:6px;border-top:1px solid #d1ddcd;color:#6b7c70;font-size:8px}';
+  var html='<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tante Adèle · Planning semaine '+weekNo+'</title><style>'+styles+'</style></head><body><header class="masthead"><div class="identity"><div class="monogram">TA</div><div><strong>TANTE ADÈLE</strong><small>BOULANGERIE · PLANNING DU PERSONNEL</small></div></div><span class="internal">DOCUMENT INTERNE</span></header><div class="title"><div><h1>Planning hebdomadaire</h1><p>Semaine '+weekNo+' · '+esc(fullWeekRange(start,end))+'</p></div><div class="period">Document préparé le<br><strong>'+esc(generated)+'</strong></div></div><div class="metadata"><span><strong>Établissement&nbsp; </strong>'+esc(shopName(S.shop))+'</span><span><strong>Période&nbsp; </strong>du lundi au dimanche · horaires en 24 h</span></div><table class="schedule"><colgroup><col style="width:15%">'+days.map(function(){return '<col style="width:10.85%">'}).join('')+'<col style="width:9%"></colgroup><thead><tr>'+headings+'</tr></thead><tbody>'+body+'</tbody><tfoot>'+footer+'</tfoot></table><div class="legend"><strong>Lecture du planning&nbsp; </strong>Les horaires sont indiqués en format 24 heures. Les durées et totaux sont calculés à partir des horaires enregistrés. Les jours du mois voisin sont inclus lorsqu’ils appartiennent à cette semaine.</div><footer class="foot"><span>Tante Adèle · Planning du personnel</span><span>Document de travail · '+esc(shopName(S.shop))+'</span></footer></body></html>';
+  w.document.open();w.document.write(html);w.document.close();w.focus();setTimeout(function(){w.print()},350);
+}
+function goMonth(delta){var d=new Date(S.year,S.month+delta,1);S.year=d.getFullYear();S.month=d.getMonth();subscribeMonths();render(true)}
+function switchShop(id){
+  if(!validShop(id)||id===S.shop)return;
+  S.shop=id;S.confirmRemove=null;
+  try{localStorage.setItem(LS_SHOP,id)}catch(e){}
+  subscribeMonths();render(true);
+}
+
+/* ---------- Sauvegarde et restauration ---------- */
+function collectBackup(){
+  function base(sh){return {app:'planning-personnel',v:2,saved:new Date().toISOString(),shops:sh}}
+  if(S.backend==='db'){
+    return S.db.collection('planning').get().then(function(q){
+      var sh=allShops();
+      q.docs.forEach(function(d){
+        var m=/^m-(?:([a-z]+)-)?(\d{4}-\d{2})$/.exec(d.id);if(!m)return;
+        var shop=m[1]||'halles',data=d.data();
+        if(sh[shop]&&data&&data.shifts)sh[shop].months[m[2]]=clone(data.shifts);
+      });
+      return base(sh);
+    });
+  }
+  return Promise.resolve(base(allShops()));
+}
+function downloadText(text,name,type){
+  var url=URL.createObjectURL(new Blob([text],{type:type})),a=document.createElement('a');
+  a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(url)},3000);
+}
+function saveFile(){
+  collectBackup().then(function(b){
+    var json=JSON.stringify(b).replace(/</g,'\\u003c');
+    var html=TEMPLATE.replace(/(<script type="application\/json" id="savedData">)[\s\S]*?(<\/script>)/,function(m,a,c){return a+json+c});
+    var name='planning-tante-adele.html';
+    function done(msg){S.fileDirty=false;renderStatus();toast(msg)}
+    function fallback(){try{downloadText(html,name,'text/html');done('Fichier téléchargé : gardez celui-ci à la place de l’ancien.')}catch(e){toast('Le fichier n’a pas pu être enregistré.')}}
+    if(window.showSaveFilePicker){
+      window.showSaveFilePicker({suggestedName:name,types:[{description:'Page web',accept:{'text/html':['.html']}}]})
+        .then(function(h){return h.createWritable().then(function(w){return w.write(html).then(function(){return w.close()})})})
+        .then(function(){done('Fichier enregistré')},function(err){if(err&&err.name==='AbortError')return;fallback()});
+    }else fallback();
+  },function(){toast('Impossible de lire le planning. Réessayez.')});
+}
+function saveBackup(){
+  if(STANDALONE){saveFile();return}
+  var name='planning-sauvegarde-'+TODAY+'.json';
+  collectBackup().then(function(b){
+    var json=JSON.stringify(b);
+    if(S.dl){S.dl.save({filename:name,data:json}).then(function(){toast('Sauvegarde enregistrée')},function(err){if(err&&err.code==='declined')return;toast('La sauvegarde n’a pas pu être enregistrée.')})}
+    else{try{downloadText(json,name,'application/json');toast('Sauvegarde enregistrée dans vos téléchargements')}catch(e){toast('La sauvegarde n’a pas pu être enregistrée.')}}
+  },function(){toast('Impossible de lire le planning pour la sauvegarde. Réessayez.')});
+}
+function readBackupFile(file){
+  var r=new FileReader();
+  r.onload=function(){
+    var obj=null;
+    try{
+      if(/\.html?$/i.test(file.name)){var mm=/<script type="application\/json" id="savedData">([\s\S]*?)<\/script>/.exec(r.result);obj=mm?JSON.parse(mm[1]):null}
+      else obj=JSON.parse(r.result);
+    }catch(e){}
+    var sh=obj&&obj.app==='planning-personnel'?toShops(obj):null;
+    if(!sh){toast('Ce fichier n’est pas une sauvegarde du planning.');return}
+    S.pendingImport={saved:obj.saved,shops:sh};render(true);
+  };
+  r.onerror=function(){toast('Le fichier n’a pas pu être lu.')};
+  r.readAsText(file);
+}
+function applyImport(){
+  var b=S.pendingImport;S.pendingImport=null;if(!b)return;
+  var ids=Object.keys(b.shops);
+  ids.forEach(function(id){
+    S.L[id]={cfg:normalizeCfg(clone(b.shops[id].cfg)),months:clone(b.shops[id].months)};
+    persistCfg(id);
+    Object.keys(S.L[id].months).forEach(function(k){persistMonth(k,id)});
+  });
+  if(S.backend==='db'){
+    S.db.collection('planning').get().then(function(q){
+      q.docs.forEach(function(d){
+        var m=/^m-(?:([a-z]+)-)?(\d{4}-\d{2})$/.exec(d.id);if(!m)return;
+        var shop=m[1]||'halles';
+        if(ids.indexOf(shop)<0||S.L[shop].months[m[2]])return;
+        S.L[shop].months[m[2]]={};persistMonth(m[2],shop);
+      });
+    },function(){});
+  }
+  S.tab='planning';S.confirmRemove=null;render(true);toast('Sauvegarde restaurée');
+}
+
+/* ---------- Événements ---------- */
+$('prev').addEventListener('click',function(){goMonth(-1)});
+$('next').addEventListener('click',function(){goMonth(1)});
+$('today').addEventListener('click',function(){var n=new Date();S.year=n.getFullYear();S.month=n.getMonth();subscribeMonths();render(true)});
+$('shops').addEventListener('click',function(ev){var b=ev.target.closest('[data-shop]');if(b)switchShop(b.dataset.shop)});
+document.querySelector('.tabs').addEventListener('click',function(ev){var b=ev.target.closest('[data-tab]');if(!b)return;S.tab=b.dataset.tab;S.confirmRemove=null;render(true)});
+$('banner').addEventListener('click',function(ev){
+  var t=ev.target.closest('[data-act]');if(!t)return;
+  if(t.dataset.act==='start-live')startLive();
+  else if(t.dataset.act==='import-yes')applyImport();
+  else if(t.dataset.act==='import-no'){S.pendingImport=null;render(true)}
+});
+$('saveCopy').addEventListener('click',saveBackup);
+if(STANDALONE)$('saveCopy').textContent='Télécharger une copie';
+$('openCopy').addEventListener('click',function(){$('importFile').value='';$('importFile').click()});
+$('cloudSignIn').addEventListener('click',function(){$('cloudLoginError').textContent='';$('cloudLoginPanel').hidden=false;$('cloudUsername').focus()});
+$('cloudSignOut').addEventListener('click',function(){if(S.sb)S.sb.auth.signOut()});
+$('cloudLoginClose').addEventListener('click',function(){$('cloudLoginPanel').hidden=true});
+$('cloudLoginCancel').addEventListener('click',function(){$('cloudLoginPanel').hidden=true});
+$('cloudLoginPanel').addEventListener('click',function(e){if(e.target===$('cloudLoginPanel'))$('cloudLoginPanel').hidden=true});
+$('cloudLoginForm').addEventListener('submit',function(e){e.preventDefault();$('cloudLoginError').textContent='';var users={admin:'admin@example.com',dev:'dev@example.com'},email=users[$('cloudUsername').value.trim().toLowerCase()];if(!email){$('cloudLoginError').textContent='Nom d’utilisateur ou mot de passe incorrect.';return}S.sb.auth.signInWithPassword({email:email,password:$('cloudPassword').value}).then(function(r){if(r.error)throw r.error;$('cloudLoginPanel').hidden=true;$('cloudPassword').value=''}).catch(function(){ $('cloudLoginError').textContent='Nom d’utilisateur ou mot de passe incorrect.'})});
+$('importFile').addEventListener('change',function(){var f=this.files&&this.files[0];if(f)readBackupFile(f)});
+$('view').addEventListener('click',function(ev){
+  var t=ev.target.closest('[data-act],.cellbtn');if(!t)return;
+  if(t.classList.contains('cellbtn')){openEditor(t.dataset.emp,t.dataset.date,t);return}
+  var act=t.dataset.act;
+  if(act==='goto-team'){if(!isLive())startLive();else{S.tab='team';render(true);focusNew()}}
+  else if(act==='remove'){S.confirmRemove=t.dataset.emp;render(true)}
+  else if(act==='cancel-remove'){S.confirmRemove=null;render(true)}
+  else if(act==='confirm-remove')removeEmployee(t.dataset.emp);
+  else if(act==='export')exportCsv();
+  else if(act==='export-week-excel')exportWeekExcel(t.dataset.weekStart);
+  else if(act==='export-week-pdf')exportWeekPdf(t.dataset.weekStart);
+});
+$('view').addEventListener('submit',function(ev){if(ev.target.id==='addForm'){ev.preventDefault();addEmployee()}});
+$('view').addEventListener('change',function(ev){
+  var t=ev.target;
+  if(t.classList.contains('nameinput'))renameEmployee(t.dataset.emp,t.value);
+  else if(/^d[MAS][12]$/.test(t.id))changeDefaults();
+});
+['edS1','edS2','edM1','edM2','edA1','edA2'].forEach(function(id){$(id).addEventListener('input',checkEditor)});
+['edModeS','edModeD'].forEach(function(id){$(id).addEventListener('change',changeMode)});
+document.querySelector('.presets').addEventListener('click',function(ev){var b=ev.target.closest('[data-preset]');if(b)applyPreset(b.dataset.preset)});
+$('edWeekdays').addEventListener('click',function(){for(var i=0;i<5;i++){var c=$('edDay'+i);if(c&&!c.disabled)c.checked=true}});
+$('edSave').addEventListener('click',saveEditor);
+$('edCancel').addEventListener('click',closeEditor);
+$('edClose').addEventListener('click',closeEditor);
+$('editor').addEventListener('mousedown',function(ev){if(ev.target===$('editor'))closeEditor()});
+document.addEventListener('keydown',function(ev){
+  if($('editor').hidden)return;
+  if(ev.key==='Escape'){ev.preventDefault();closeEditor();return}
+  if(ev.key==='Tab'){
+    var f=Array.prototype.filter.call($('editor').querySelectorAll('button,input'),function(x){return !x.disabled&&x.offsetParent!==null});
+    if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus()}
+    else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus()}
+  }
+});
+
+/* ---------- Démarrage ---------- */
+function use(name){
+  try{if(window.claude&&typeof window.claude.use==='function')return window.claude.use(name).catch(function(){return null})}catch(e){}
+  return Promise.resolve(null);
+}
+render();
+if(window.supabase&&window.TA_SUPABASE_URL&&window.TA_SUPABASE_ANON_KEY&&window.TA_SUPABASE_URL!=='https://VOTRE-PROJET.supabase.co'&&window.TA_SUPABASE_ANON_KEY!=='REMPLACER'){
+  try{
+    S.sb=window.supabase.createClient(window.TA_SUPABASE_URL,window.TA_SUPABASE_ANON_KEY);S.db=supaDbAdapter();S.backend='db';
+    S.sb.auth.onAuthStateChange(function(event,session){
+      var user=session&&session.user;
+      if(user){
+        if(!S.currentUser||S.currentUser.id!==user.id){S.unsubCfgs.concat(S.unsubMonths).forEach(function(f){try{f()}catch(e){}});S.unsubCfgs=[];S.unsubMonths=[];SHOPS.forEach(function(s){S.L[s.id]={cfg:null,months:{}}});S.loaded={};S.currentUser=user;S.booting=false;setTimeout(function(){if(S.currentUser&&S.currentUser.id===user.id){subscribeCfgs();subscribeMonths()}},0)}
+        else S.currentUser=user;
+      }else{
+        S.unsubCfgs.concat(S.unsubMonths).forEach(function(f){try{f()}catch(e){}});S.unsubCfgs=[];S.unsubMonths=[];SHOPS.forEach(function(s){S.L[s.id]={cfg:null,months:{}}});S.loaded={};S.currentUser=null;S.booting=false;
+      }
+      render(true);
+    });
+  }catch(e){S.backend='local';loadLocal();S.booting=false;S.statusKind='error';S.statusMsg='Configuration Supabase invalide : stockage local activé.';render(true)}
+}else{
+  Promise.all([use('db'),use('user'),use('downloads')]).then(function(r){
+    var db=r[0],user=r[1];S.dl=r[2]||null;
+    var p=user&&typeof user.can==='function'?user.can('data.write').catch(function(){return null}):Promise.resolve(null);
+    return p.then(function(canWrite){
+      if(db&&canWrite!==false){S.backend='db';S.db=db;S.booting=false;subscribeCfgs();subscribeMonths();render(true)}
+      else{S.backend='local';loadLocal();S.booting=false;render(true)}
+    });
+  });
+}
+})();
+</script>
+
+</body></html>
