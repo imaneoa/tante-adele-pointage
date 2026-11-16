@@ -1,46 +1,54 @@
-# Tante Adèle — planning du personnel
+# Planning du personnel — Tante Adèle
 
-GitHub Pages sert l'application statique. Supabase Free fournit la base Postgres
-partagée et l'authentification. L'application relit les changements toutes les
-20 secondes pendant qu'elle est ouverte et recharge les données au prochain accès.
+**Application web de planning et de pointage pour trois boulangeries.** Réalisée par Imane OULD AMER pour centraliser les équipes et leurs horaires, puis consulter les totaux depuis plusieurs appareils.
 
-## Configuration Supabase
+**[Ouvrir la démo](https://imaneoa.github.io/tante-adele-pointage/)** · **[Voir le profil d’Imane](https://github.com/imaneoa)**
 
-1. Ouvrez le projet Supabase que vous venez de créer.
-2. Dans **Authentication → Users**, ajoutez deux comptes et définissez un mot de
-   passe solide pour chacun. Le compte `admin@example.com` correspond au nom
-   d'utilisateur **Admin** (superviseur) et `dev@example.com` à **Dev** (Imane).
-   Cochez la confirmation automatique si le tableau de bord la propose, car ces
-   adresses servent d'identifiants internes et ne reçoivent pas de courrier.
-   Désactivez l'inscription publique. Choisissez des mots de passe distincts des
-   identifiants de votre compte Supabase.
-3. Exécutez `supabase-schema.sql` dans **SQL Editor**. Il crée la table, active
-   RLS et limite la lecture et l'écriture à ces deux comptes.
-4. Le **Project URL** et la clé **publishable** fournis pour ce projet sont déjà
-   inscrits dans `supabase-config.js`. Une clé publishable est prévue pour le
-   navigateur; n'utilisez jamais la clé `service_role` dans le site ou le dépôt.
+## Ce que fait l’application
 
-## Publication GitHub Pages
+- Gère séparément les équipes des Halles, de Corgnac et de Landouge.
+- Permet d’ajouter des employés et de saisir leurs horaires par jour, matin et après-midi.
+- Calcule les totaux hebdomadaires et mensuels.
+- Exporte les plannings en CSV, Excel et PDF.
+- Enregistre les données dans le cloud pour les retrouver après reconnexion depuis un autre appareil.
+- Affiche un exemple de démonstration avant la création d’une équipe.
 
-1. Créez un dépôt GitHub sous votre compte et ajoutez les fichiers de ce dossier.
-2. Activez **Settings → Pages → Deploy from a branch → main / root**.
-3. Le lien sera `https://<nom-utilisateur>.github.io/<depot>/`. GitHub Free
-   nécessite un dépôt public pour GitHub Pages.
-4. Ouvrez le lien et connectez-vous avec le nom d'utilisateur **Admin** ou
-   **Dev** et le mot de passe correspondant, puis ajoutez les équipes. Les
-   modifications sont enregistrées dans Supabase.
+## Choix techniques
 
-## Import des données actuelles
+L’interface est une application statique HTML, CSS et JavaScript. GitHub Pages la sert; Supabase Auth gère la connexion et PostgreSQL conserve la configuration des équipes et les horaires mensuels en JSONB.
 
-Sur l'ancien appareil, dans l'ancien fichier, cliquez **Télécharger une copie**.
-Sur la version en ligne après connexion, choisissez **Restaurer une sauvegarde**
-et sélectionnez le fichier exporté. La restauration enregistrera les trois
-plannings dans la base partagée.
+```mermaid
+flowchart LR
+    A[Navigateur<br/>HTML · CSS · JavaScript] -->|Connexion| B[Supabase Auth]
+    A -->|Lecture et écriture| C[API Supabase]
+    C --> D[(PostgreSQL<br/>planning_documents)]
+    E[RLS<br/>Admin et Dev autorisés] -. protège .-> D
+```
 
-## Limites du forfait gratuit
+Les documents de configuration et les horaires sont séparés par boulangerie et par mois. L’application recharge les changements toutes les 20 secondes tant qu’elle reste ouverte; à la prochaine ouverture, elle relit les données enregistrées.
 
-Supabase Free inclut une base de 500 MB et jusqu'à deux projets gratuits. Un
-projet inactif peut être mis en pause après une semaine ; ses données restent
-conservées et le projet peut être réactivé depuis le tableau de bord. Ce n'est
-pas un service avec disponibilité garantie. Exportez périodiquement une copie
-depuis l'application pour garder une sauvegarde indépendante.
+## Sécurité des données
+
+- Les utilisateurs se connectent avec les noms **Admin** et **Dev**. L’application les associe à `admin@example.com` et `dev@example.com` dans Supabase Auth.
+- Les règles Row Level Security limitent la lecture et l’écriture à ces deux comptes.
+- Le site utilise uniquement la clé publique Supabase prévue pour le navigateur. Aucune clé `service_role` n’est incluse.
+- Les mots de passe ne sont pas stockés dans le dépôt.
+
+## Technologies
+
+`HTML` · `CSS` · `JavaScript` · `Supabase Auth` · `PostgreSQL` · `Row Level Security` · `GitHub Pages`
+
+## Reproduire le déploiement
+
+1. Créer un projet Supabase et deux utilisateurs Auth: `admin@example.com` et `dev@example.com`, avec confirmation automatique.
+2. Exécuter [`supabase-schema.sql`](supabase-schema.sql) dans le SQL Editor.
+3. Renseigner le Project URL et la clé `publishable` dans [`supabase-config.js`](supabase-config.js). Garder la clé `service_role` hors du navigateur et du dépôt.
+4. Publier `index.html` à la racine d’un dépôt public, puis activer GitHub Pages depuis la branche `main`.
+
+## Importer une sauvegarde existante
+
+Dans l’ancienne version, utiliser **Télécharger une copie**. Dans la démo en ligne, se connecter puis choisir **Restaurer une sauvegarde** et sélectionner le fichier exporté.
+
+## À propos du projet
+
+Ce projet met en pratique le développement d’une interface web orientée usage, la modélisation simple de données, l’authentification et les règles d’accès à une base partagée. Il accompagne le parcours d’Imane en Master 1 CRYPTIS — Sécurité informatique à l’Université de Limoges.
